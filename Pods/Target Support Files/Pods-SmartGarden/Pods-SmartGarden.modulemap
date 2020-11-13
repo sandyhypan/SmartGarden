@@ -1,0 +1,6 @@
+framework module Pods_SmartGarden {
+  umbrella header "Pods-SmartGarden-umbrella.h"
+
+  export *
+  module * { export * }
+}

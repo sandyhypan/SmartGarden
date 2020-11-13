@@ -1,0 +1,504 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B984DE092550D9E700B69DE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B984DE082550D9E700B69DE4 /* AppDelegate.swift */; };
+		B984DE0B2550D9E700B69DE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B984DE0A2550D9E700B69DE4 /* SceneDelegate.swift */; };
+		B984DE0D2550D9E700B69DE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B984DE0C2550D9E700B69DE4 /* ViewController.swift */; };
+		B984DE102550D9E700B69DE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B984DE0E2550D9E700B69DE4 /* Main.storyboard */; };
+		B984DE122550D9EC00B69DE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B984DE112550D9EC00B69DE4 /* Assets.xcassets */; };
+		B984DE152550D9EC00B69DE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B984DE132550D9EC00B69DE4 /* LaunchScreen.storyboard */; };
+		B984DE1D2550E0DA00B69DE4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B984DE1C2550E0DA00B69DE4 /* SignInViewController.swift */; };
+		B984DE1F2550E57F00B69DE4 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B984DE1E2550E57F00B69DE4 /* HomeTableViewController.swift */; };
+		B984DE212550E84100B69DE4 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B984DE202550E84100B69DE4 /* SignUpViewController.swift */; };
+		B984DE232550E85400B69DE4 /* PairingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B984DE222550E85400B69DE4 /* PairingViewController.swift */; };
+		B984DE262550E87C00B69DE4 /* AddPlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B984DE252550E87C00B69DE4 /* AddPlantViewController.swift */; };
+		B984DE282550E8A400B69DE4 /* PlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B984DE272550E8A400B69DE4 /* PlantViewController.swift */; };
+		B984DE2A2550E8F100B69DE4 /* PlantSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B984DE292550E8F100B69DE4 /* PlantSettingViewController.swift */; };
+		B984DE3A255E2FC400B69DE4 /* DatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B984DE39255E2FC400B69DE4 /* DatabaseProtocol.swift */; };
+		B984DE3E255E33AA00B69DE4 /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B984DE3D255E33AA00B69DE4 /* MulticastDelegate.swift */; };
+		B984DE42255E360500B69DE4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B984DE41255E360500B69DE4 /* GoogleService-Info.plist */; };
+		B984DE45255E50A800B69DE4 /* PlantModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B984DE43255E50A800B69DE4 /* PlantModel.xcdatamodeld */; };
+		B984DE47255E51B200B69DE4 /* SensorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B984DE46255E51B200B69DE4 /* SensorData.swift */; };
+		B984DE4E255E54A400B69DE4 /* Plant+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B984DE4C255E54A400B69DE4 /* Plant+CoreDataClass.swift */; };
+		B984DE4F255E54A400B69DE4 /* Plant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B984DE4D255E54A400B69DE4 /* Plant+CoreDataProperties.swift */; };
+		B984DE51255E568E00B69DE4 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B984DE50255E568E00B69DE4 /* CoreDataController.swift */; };
+		B984DE55255E65A500B69DE4 /* PlantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B984DE54255E65A500B69DE4 /* PlantTableViewCell.swift */; };
+		ECF0E442A01EB53801B3271A /* Pods_SmartGarden.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B67BEBB5D0F608785E8DB9 /* Pods_SmartGarden.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0924476442ED70224230CACB /* Pods-SmartGarden.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartGarden.debug.xcconfig"; path = "Target Support Files/Pods-SmartGarden/Pods-SmartGarden.debug.xcconfig"; sourceTree = "<group>"; };
+		16B67BEBB5D0F608785E8DB9 /* Pods_SmartGarden.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartGarden.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		369B796E584592D6AF4FC54D /* Pods-SmartGarden.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartGarden.release.xcconfig"; path = "Target Support Files/Pods-SmartGarden/Pods-SmartGarden.release.xcconfig"; sourceTree = "<group>"; };
+		B984DE052550D9E700B69DE4 /* SmartGarden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartGarden.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B984DE082550D9E700B69DE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B984DE0A2550D9E700B69DE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B984DE0C2550D9E700B69DE4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B984DE0F2550D9E700B69DE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B984DE112550D9EC00B69DE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B984DE142550D9EC00B69DE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B984DE162550D9EC00B69DE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B984DE1C2550E0DA00B69DE4 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		B984DE1E2550E57F00B69DE4 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		B984DE202550E84100B69DE4 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		B984DE222550E85400B69DE4 /* PairingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingViewController.swift; sourceTree = "<group>"; };
+		B984DE252550E87C00B69DE4 /* AddPlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantViewController.swift; sourceTree = "<group>"; };
+		B984DE272550E8A400B69DE4 /* PlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantViewController.swift; sourceTree = "<group>"; };
+		B984DE292550E8F100B69DE4 /* PlantSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantSettingViewController.swift; sourceTree = "<group>"; };
+		B984DE39255E2FC400B69DE4 /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProtocol.swift; sourceTree = "<group>"; };
+		B984DE3D255E33AA00B69DE4 /* MulticastDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
+		B984DE41255E360500B69DE4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B984DE44255E50A800B69DE4 /* PlantDetailsModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlantDetailsModel.xcdatamodel; sourceTree = "<group>"; };
+		B984DE46255E51B200B69DE4 /* SensorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorData.swift; sourceTree = "<group>"; };
+		B984DE4C255E54A400B69DE4 /* Plant+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plant+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		B984DE4D255E54A400B69DE4 /* Plant+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plant+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		B984DE50255E568E00B69DE4 /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
+		B984DE54255E65A500B69DE4 /* PlantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTableViewCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B984DE022550D9E700B69DE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECF0E442A01EB53801B3271A /* Pods_SmartGarden.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4BEC82EA3BF37D071507EE55 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				16B67BEBB5D0F608785E8DB9 /* Pods_SmartGarden.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B984DDFC2550D9E700B69DE4 = {
+			isa = PBXGroup;
+			children = (
+				B984DE072550D9E700B69DE4 /* SmartGarden */,
+				B984DE062550D9E700B69DE4 /* Products */,
+				C9590366B5421024DA988A24 /* Pods */,
+				4BEC82EA3BF37D071507EE55 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B984DE062550D9E700B69DE4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B984DE052550D9E700B69DE4 /* SmartGarden.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B984DE072550D9E700B69DE4 /* SmartGarden */ = {
+			isa = PBXGroup;
+			children = (
+				B984DE41255E360500B69DE4 /* GoogleService-Info.plist */,
+				B984DE38255E2FA700B69DE4 /* Database */,
+				B984DE35255E2C4600B69DE4 /* DataModel */,
+				B984DE082550D9E700B69DE4 /* AppDelegate.swift */,
+				B984DE0A2550D9E700B69DE4 /* SceneDelegate.swift */,
+				B984DE0C2550D9E700B69DE4 /* ViewController.swift */,
+				B984DE0E2550D9E700B69DE4 /* Main.storyboard */,
+				B984DE112550D9EC00B69DE4 /* Assets.xcassets */,
+				B984DE132550D9EC00B69DE4 /* LaunchScreen.storyboard */,
+				B984DE162550D9EC00B69DE4 /* Info.plist */,
+				B984DE1C2550E0DA00B69DE4 /* SignInViewController.swift */,
+				B984DE1E2550E57F00B69DE4 /* HomeTableViewController.swift */,
+				B984DE202550E84100B69DE4 /* SignUpViewController.swift */,
+				B984DE222550E85400B69DE4 /* PairingViewController.swift */,
+				B984DE252550E87C00B69DE4 /* AddPlantViewController.swift */,
+				B984DE272550E8A400B69DE4 /* PlantViewController.swift */,
+				B984DE292550E8F100B69DE4 /* PlantSettingViewController.swift */,
+				B984DE54255E65A500B69DE4 /* PlantTableViewCell.swift */,
+			);
+			path = SmartGarden;
+			sourceTree = "<group>";
+		};
+		B984DE35255E2C4600B69DE4 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				B984DE43255E50A800B69DE4 /* PlantModel.xcdatamodeld */,
+				B984DE4C255E54A400B69DE4 /* Plant+CoreDataClass.swift */,
+				B984DE4D255E54A400B69DE4 /* Plant+CoreDataProperties.swift */,
+				B984DE46255E51B200B69DE4 /* SensorData.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		B984DE38255E2FA700B69DE4 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				B984DE39255E2FC400B69DE4 /* DatabaseProtocol.swift */,
+				B984DE3D255E33AA00B69DE4 /* MulticastDelegate.swift */,
+				B984DE50255E568E00B69DE4 /* CoreDataController.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		C9590366B5421024DA988A24 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0924476442ED70224230CACB /* Pods-SmartGarden.debug.xcconfig */,
+				369B796E584592D6AF4FC54D /* Pods-SmartGarden.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B984DE042550D9E700B69DE4 /* SmartGarden */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B984DE192550D9EC00B69DE4 /* Build configuration list for PBXNativeTarget "SmartGarden" */;
+			buildPhases = (
+				26DD007D8FFE6C0372C799CE /* [CP] Check Pods Manifest.lock */,
+				B984DE012550D9E700B69DE4 /* Sources */,
+				B984DE022550D9E700B69DE4 /* Frameworks */,
+				B984DE032550D9E700B69DE4 /* Resources */,
+				0FAE98C50CB4580712E07B5B /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmartGarden;
+			productName = SmartGarden;
+			productReference = B984DE052550D9E700B69DE4 /* SmartGarden.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B984DDFD2550D9E700B69DE4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = "Sandy Pan";
+				TargetAttributes = {
+					B984DE042550D9E700B69DE4 = {
+						CreatedOnToolsVersion = 11.5;
+					};
+				};
+			};
+			buildConfigurationList = B984DE002550D9E700B69DE4 /* Build configuration list for PBXProject "SmartGarden" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B984DDFC2550D9E700B69DE4;
+			productRefGroup = B984DE062550D9E700B69DE4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B984DE042550D9E700B69DE4 /* SmartGarden */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B984DE032550D9E700B69DE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B984DE152550D9EC00B69DE4 /* LaunchScreen.storyboard in Resources */,
+				B984DE42255E360500B69DE4 /* GoogleService-Info.plist in Resources */,
+				B984DE122550D9EC00B69DE4 /* Assets.xcassets in Resources */,
+				B984DE102550D9E700B69DE4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0FAE98C50CB4580712E07B5B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SmartGarden/Pods-SmartGarden-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SmartGarden/Pods-SmartGarden-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SmartGarden/Pods-SmartGarden-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		26DD007D8FFE6C0372C799CE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SmartGarden-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B984DE012550D9E700B69DE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B984DE212550E84100B69DE4 /* SignUpViewController.swift in Sources */,
+				B984DE1D2550E0DA00B69DE4 /* SignInViewController.swift in Sources */,
+				B984DE2A2550E8F100B69DE4 /* PlantSettingViewController.swift in Sources */,
+				B984DE4F255E54A400B69DE4 /* Plant+CoreDataProperties.swift in Sources */,
+				B984DE0D2550D9E700B69DE4 /* ViewController.swift in Sources */,
+				B984DE51255E568E00B69DE4 /* CoreDataController.swift in Sources */,
+				B984DE092550D9E700B69DE4 /* AppDelegate.swift in Sources */,
+				B984DE0B2550D9E700B69DE4 /* SceneDelegate.swift in Sources */,
+				B984DE1F2550E57F00B69DE4 /* HomeTableViewController.swift in Sources */,
+				B984DE47255E51B200B69DE4 /* SensorData.swift in Sources */,
+				B984DE45255E50A800B69DE4 /* PlantModel.xcdatamodeld in Sources */,
+				B984DE3E255E33AA00B69DE4 /* MulticastDelegate.swift in Sources */,
+				B984DE262550E87C00B69DE4 /* AddPlantViewController.swift in Sources */,
+				B984DE55255E65A500B69DE4 /* PlantTableViewCell.swift in Sources */,
+				B984DE3A255E2FC400B69DE4 /* DatabaseProtocol.swift in Sources */,
+				B984DE232550E85400B69DE4 /* PairingViewController.swift in Sources */,
+				B984DE4E255E54A400B69DE4 /* Plant+CoreDataClass.swift in Sources */,
+				B984DE282550E8A400B69DE4 /* PlantViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B984DE0E2550D9E700B69DE4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B984DE0F2550D9E700B69DE4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B984DE132550D9EC00B69DE4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B984DE142550D9EC00B69DE4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B984DE172550D9EC00B69DE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B984DE182550D9EC00B69DE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B984DE1A2550D9EC00B69DE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0924476442ED70224230CACB /* Pods-SmartGarden.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SmartGarden/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.SmartGarden;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B984DE1B2550D9EC00B69DE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 369B796E584592D6AF4FC54D /* Pods-SmartGarden.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SmartGarden/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.SmartGarden;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B984DE002550D9E700B69DE4 /* Build configuration list for PBXProject "SmartGarden" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B984DE172550D9EC00B69DE4 /* Debug */,
+				B984DE182550D9EC00B69DE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B984DE192550D9EC00B69DE4 /* Build configuration list for PBXNativeTarget "SmartGarden" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B984DE1A2550D9EC00B69DE4 /* Debug */,
+				B984DE1B2550D9EC00B69DE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B984DE43255E50A800B69DE4 /* PlantModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B984DE44255E50A800B69DE4 /* PlantDetailsModel.xcdatamodel */,
+			);
+			currentVersion = B984DE44255E50A800B69DE4 /* PlantDetailsModel.xcdatamodel */;
+			path = PlantModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = B984DDFD2550D9E700B69DE4 /* Project object */;
+}

@@ -1,0 +1,19 @@
+//
+//  ViewController.swift
+//  SmartGarden
+//
+//  Copyright © 2020 Sandy Pan. All rights reserved.
+//
+
+import UIKit
+
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+
+
+}
+
