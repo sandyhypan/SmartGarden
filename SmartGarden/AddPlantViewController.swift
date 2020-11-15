@@ -10,21 +10,19 @@ import UIKit
 
 class AddPlantViewController: UIViewController {
     @IBOutlet weak var plantNameTextfield: UITextField!
-    
     @IBOutlet weak var waterTankVolumeTextField: UITextField!
-    
     @IBOutlet weak var moistureLevelTextField: UITextField!
-    
     @IBOutlet weak var lightLevelTextField: UITextField!
-    
     @IBOutlet weak var soilTempTextField: UITextField!
-    
     @IBOutlet weak var plantImage: UIImageView!
+    
+    var deviceUUID: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+
     }
     
     @IBAction func selectImage(_ sender: Any) {
