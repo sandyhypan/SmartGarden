@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3AD4740B2560F6FC00ED9271 /* DisplayMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD4740A2560F6FC00ED9271 /* DisplayMessages.swift */; };
+		3AD474262560F8D000ED9271 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD474252560F8D000ED9271 /* Validator.swift */; };
+		3AD4742A25610C4000ED9271 /* AuthenticationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD4742925610C4000ED9271 /* AuthenticationState.swift */; };
+		3AD4742D25610F3D00ED9271 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD4742C25610F3D00ED9271 /* User.swift */; };
 		B984DE092550D9E700B69DE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B984DE082550D9E700B69DE4 /* AppDelegate.swift */; };
 		B984DE0B2550D9E700B69DE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B984DE0A2550D9E700B69DE4 /* SceneDelegate.swift */; };
 		B984DE0D2550D9E700B69DE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B984DE0C2550D9E700B69DE4 /* ViewController.swift */; };
@@ -36,6 +40,10 @@
 		0924476442ED70224230CACB /* Pods-SmartGarden.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartGarden.debug.xcconfig"; path = "Target Support Files/Pods-SmartGarden/Pods-SmartGarden.debug.xcconfig"; sourceTree = "<group>"; };
 		16B67BEBB5D0F608785E8DB9 /* Pods_SmartGarden.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartGarden.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		369B796E584592D6AF4FC54D /* Pods-SmartGarden.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartGarden.release.xcconfig"; path = "Target Support Files/Pods-SmartGarden/Pods-SmartGarden.release.xcconfig"; sourceTree = "<group>"; };
+		3AD4740A2560F6FC00ED9271 /* DisplayMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMessages.swift; sourceTree = "<group>"; };
+		3AD474252560F8D000ED9271 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		3AD4742925610C4000ED9271 /* AuthenticationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationState.swift; sourceTree = "<group>"; };
+		3AD4742C25610F3D00ED9271 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B984DE052550D9E700B69DE4 /* SmartGarden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartGarden.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B984DE082550D9E700B69DE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B984DE0A2550D9E700B69DE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +82,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3AD474092560F6E900ED9271 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3AD4740A2560F6FC00ED9271 /* DisplayMessages.swift */,
+				3AD474252560F8D000ED9271 /* Validator.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3AD4742825610BDC00ED9271 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				3AD4742925610C4000ED9271 /* AuthenticationState.swift */,
+				3AD4742C25610F3D00ED9271 /* User.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		4BEC82EA3BF37D071507EE55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +111,8 @@
 		B984DDFC2550D9E700B69DE4 = {
 			isa = PBXGroup;
 			children = (
+				3AD4742825610BDC00ED9271 /* Auth */,
+				3AD474092560F6E900ED9271 /* Helpers */,
 				B984DE072550D9E700B69DE4 /* SmartGarden */,
 				B984DE062550D9E700B69DE4 /* Products */,
 				C9590366B5421024DA988A24 /* Pods */,
@@ -279,12 +307,16 @@
 				B984DE51255E568E00B69DE4 /* CoreDataController.swift in Sources */,
 				B984DE092550D9E700B69DE4 /* AppDelegate.swift in Sources */,
 				B984DE0B2550D9E700B69DE4 /* SceneDelegate.swift in Sources */,
+				3AD4740B2560F6FC00ED9271 /* DisplayMessages.swift in Sources */,
 				B984DE1F2550E57F00B69DE4 /* HomeTableViewController.swift in Sources */,
+				3AD4742D25610F3D00ED9271 /* User.swift in Sources */,
 				B984DE47255E51B200B69DE4 /* SensorData.swift in Sources */,
 				B984DE45255E50A800B69DE4 /* PlantModel.xcdatamodeld in Sources */,
+				3AD474262560F8D000ED9271 /* Validator.swift in Sources */,
 				B984DE3E255E33AA00B69DE4 /* MulticastDelegate.swift in Sources */,
 				B984DE262550E87C00B69DE4 /* AddPlantViewController.swift in Sources */,
 				B984DE55255E65A500B69DE4 /* PlantTableViewCell.swift in Sources */,
+				3AD4742A25610C4000ED9271 /* AuthenticationState.swift in Sources */,
 				B984DE3A255E2FC400B69DE4 /* DatabaseProtocol.swift in Sources */,
 				B984DE232550E85400B69DE4 /* PairingViewController.swift in Sources */,
 				B984DE4E255E54A400B69DE4 /* Plant+CoreDataClass.swift in Sources */,
