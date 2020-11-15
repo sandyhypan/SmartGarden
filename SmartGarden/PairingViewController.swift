@@ -14,6 +14,7 @@ class PairingViewController: UIViewController {
     @IBOutlet weak var ipUITextField: UITextField!
     
     var deviceUUID: String?
+    var uid: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,15 +27,30 @@ class PairingViewController: UIViewController {
         
         // Check if the user input a valid ip address
         if inputText != ""{
-            if let _ = IPv4Address(inputText){
+            // ref https://stackoverflow.com/questions/24482958/validate-if-a-string-in-nstextfield-is-a-valid-ip-address-or-domain-name
+            // For validating format of IPv4 address
+            var sin = sockaddr_in()
+            if inputText.withCString({ cstring in inet_pton(AF_INET, cstring, &sin.sin_addr) }) == 1{
                 let url = URL(string: "http://\(inputText):5000/pair")
+                
+                var request = URLRequest(url: url!)
+                request.httpMethod = "POST"
+                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                let body = ["uid": Authenticate.getUID()]
+                let bodyData = try? JSONSerialization.data(withJSONObject: body, options: [])
+                request.httpBody = bodyData
 
                 // Get the UUID of the Pi
-                let getUUIDTask = URLSession.shared.dataTask(with: url!) {(data, response, error) in
-                    
+                // Set timeout to 5 sec
+                let sessionConfig = URLSessionConfiguration.default
+                sessionConfig.timeoutIntervalForRequest = 6.0
+                let session = URLSession(configuration: sessionConfig)
+                let getUUIDTask = session.dataTask(with: request) {(data, response, error) in
                     
                     guard let data = data else{
-                        // Request success but no data
+                        DispatchQueue.main.async {
+                            DisplayMessages.displayAlert(title: "Pairing failed.", message: "Please make sure the device is at the same network and the IP address is correct.")
+                        }
                         return
                     }
                     
@@ -45,9 +61,13 @@ class PairingViewController: UIViewController {
                     }
             }
                 getUUIDTask.resume()
+            } else {
+                DisplayMessages.displayAlert(title: "Invalid IP format", message: "Please double check the format of the IP address.")
             }
         }	
     }
+    
+
     
     
     
@@ -61,6 +81,7 @@ class PairingViewController: UIViewController {
         if segue.identifier == "addPlantSegue"{
             let destination = segue.destination as! AddPlantViewController
             destination.deviceUUID = deviceUUID
+            destination.uid = uid
             
         }
     }

@@ -41,11 +41,13 @@ class SignInViewController: UIViewController {
             // The input format is valid
             if Validator.isValidEmail(email: email){
                 Auth.auth().signIn(withEmail: email, password: password, completion: { (authResult, error) in
-                    guard let _ = authResult?.user, error == nil else {
+                    guard let user = authResult?.user, error == nil else {
                         DisplayMessages.displayAlert(title: "An error occured.", message: error?.localizedDescription ?? "An unknown error occured. Please try again later.")
                         return	
                     }
                     
+                    // Store user auth data after login
+                    UserDefaults.standard.set(user.uid, forKey: "uid")
                     self.performSegue(withIdentifier: "signInSegue", sender: self)
                 })
             } else {

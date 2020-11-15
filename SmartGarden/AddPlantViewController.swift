@@ -17,11 +17,13 @@ class AddPlantViewController: UIViewController {
     @IBOutlet weak var plantImage: UIImageView!
     
     var deviceUUID: String?
+    var uid: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        plantNameTextfield.text = deviceUUID
 
     }
     
