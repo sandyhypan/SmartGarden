@@ -15,12 +15,11 @@ class AddPlantViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var plantImage: UIImageView!
     weak var databaseController: DatabaseProtocol?
     var plantImageData: Data?
-    var deviceUUID: String?
     var ipAddress: String?
+    var uid: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         plantNameTextfield.delegate = self
         waterTankVolumeTextField.delegate = self
         moistureLevelTextField.delegate = self
@@ -65,7 +64,7 @@ class AddPlantViewController: UIViewController, UIImagePickerControllerDelegate,
     //MARK: - save plant
     @IBAction func savePlant(_ sender: Any) {
         
-        if plantNameTextfield.text != "" && waterTankVolumeTextField.text != "" && moistureLevelTextField.text != "" &&  plantImage != nil && deviceUUID != nil && ipAddress != nil{
+        if plantNameTextfield.text != "" && waterTankVolumeTextField.text != "" && moistureLevelTextField.text != "" &&  plantImage != nil && uid != nil && ipAddress != nil{
             
             let plantName = plantNameTextfield.text!
             let waterTankVol = Double(waterTankVolumeTextField.text!)
@@ -73,7 +72,7 @@ class AddPlantViewController: UIViewController, UIImagePickerControllerDelegate,
             
             
             //Add plant to core data
-            let _ = databaseController?.addPlant(plantName: plantName, ipAddress: ipAddress!, macAddress: deviceUUID!, plantPhoto: plantImageData)
+            let _ = databaseController?.addPlant(plantName: plantName, ipAddress: ipAddress!, macAddress: uid!, plantPhoto: plantImageData)
             
             //Post user preferences to Pi
             
