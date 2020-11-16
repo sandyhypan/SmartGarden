@@ -14,6 +14,7 @@ class PairingViewController: UIViewController {
     @IBOutlet weak var ipUITextField: UITextField!
     
     var deviceUUID: String?
+    var ipAddress: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,7 @@ class PairingViewController: UIViewController {
         
         // Check if the user input a valid ip address
         if inputText != ""{
+            
             if let _ = IPv4Address(inputText){
                 let url = URL(string: "http://\(inputText):5000/pair")
 
@@ -41,8 +43,10 @@ class PairingViewController: UIViewController {
                     // Get the UUID of the sensor system
                     DispatchQueue.main.async {
                         self.deviceUUID = String(decoding: data, as: UTF8.self)
+                        self.ipAddress = inputText
                         self.performSegue(withIdentifier: "addPlantSegue", sender: (Any).self)
                     }
+                    
             }
                 getUUIDTask.resume()
             }
@@ -61,6 +65,7 @@ class PairingViewController: UIViewController {
         if segue.identifier == "addPlantSegue"{
             let destination = segue.destination as! AddPlantViewController
             destination.deviceUUID = deviceUUID
+            destination.ipAddress = ipAddress
             
         }
     }
