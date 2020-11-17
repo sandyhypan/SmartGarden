@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+
 class CoreDataController: NSObject, NSFetchedResultsControllerDelegate, DatabaseProtocol {
     
     var listeners = MulticastDelegate<DatabaseListener>()
