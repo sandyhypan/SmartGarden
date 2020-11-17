@@ -15,6 +15,7 @@ class AddPlantViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var plantImage: UIImageView!
     weak var databaseController: DatabaseProtocol?
     var plantImageData: Data?
+    var deviceUUID: String?
     var ipAddress: String?
     var uid: String?
     
@@ -26,6 +27,11 @@ class AddPlantViewController: UIViewController, UIImagePickerControllerDelegate,
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         databaseController = appDelegate.databaseController
+        
+//        guard ipAddress != nil, deviceUUID != nil else {
+//            print("ipAddress or deviceUUID is missing!")
+//            return
+//        }
     }
     
     //MARK: - Image picker
@@ -64,7 +70,9 @@ class AddPlantViewController: UIViewController, UIImagePickerControllerDelegate,
     //MARK: - save plant
     @IBAction func savePlant(_ sender: Any) {
         
-        if plantNameTextfield.text != "" && waterTankVolumeTextField.text != "" && moistureLevelTextField.text != "" &&  plantImage != nil && uid != nil && ipAddress != nil{
+        if plantNameTextfield.text != "" && waterTankVolumeTextField.text != "" && moistureLevelTextField.text != "" &&  plantImage != nil{
+            
+            print("line 70 ------------------- add plant")
             
             let plantName = plantNameTextfield.text!
             let waterTankVol = Double(waterTankVolumeTextField.text!)
@@ -72,24 +80,28 @@ class AddPlantViewController: UIViewController, UIImagePickerControllerDelegate,
             
             
             //Add plant to core data
-            let _ = databaseController?.addPlant(plantName: plantName, ipAddress: ipAddress!, macAddress: uid!, plantPhoto: plantImageData)
+            let _ = databaseController?.addPlant(plantName: plantName, ipAddress: ipAddress!, macAddress: deviceUUID!, plantPhoto: plantImageData)
             
             //Post user preferences to Pi
             
-            let moistureEndpoint = "http://\(ipAddress)/setMoisture/\(moisture)"
-            guard let moistureURL = URL(string: moistureEndpoint) else{
-                return
-            }
+            //moisture level http call
+            let moistureUrlString = "http://\(ipAddress!):5000/setMoisture/\(moistureLevelTextField.text!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             
-            let dataTask = URLSession.shared.dataTask(with: moistureURL) {(data, response, error) in
+            let moistureURL = URL(string: moistureUrlString!)
+            
+            let dataTask = URLSession.shared.dataTask(with: moistureURL!) {(data, response, error) in
                 
                 if let error = error{
                     print(error.localizedDescription)
                     return
                 }
+                self.performSegue(withIdentifier: "savePlantSegue", sender: self)
             }
             dataTask.resume()
             
+            
+        } else{
+            DisplayMessages.displayAlert(title: "Error", message: "All fields must be filled.")
         }
         
         

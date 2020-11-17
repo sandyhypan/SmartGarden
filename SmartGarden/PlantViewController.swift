@@ -8,32 +8,39 @@
 
 import UIKit
 import FirebaseDatabase
+import Cosmos
 
 class PlantViewController: UIViewController {
-    var ref: DatabaseReference?
     
+    @IBOutlet weak var autoWateringSwitch: UISwitch!
+    @IBOutlet weak var waterTankVolume: CosmosView!
+    @IBOutlet weak var plantNameLabel: UILabel!
+    @IBOutlet weak var plantImageView: UIImageView!
+    var ref: DatabaseReference?
     var plant: Plant?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        plantNameLabel.text = plant?.plantName
+        plantImageView.image = UIImage(data: (plant?.plantPhoto)!)
 
         //set the reference of firebase
         ref = Database.database().reference()
         
         //retrieve
-        ref?.observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as? NSDictionary
-            let childVal = value?.allValues.first as? NSDictionary
-            
-            let temperature = childVal?["Temperature"] as! Double
-            let string = String(format: "%.2f", temperature)
-            do{
-//                try self.dummyLabel.text = string
-            } catch{
-                print("dummyLabel error")
-            }
-            
-        })
+//        ref?.observeSingleEvent(of: .value, with: { (snapshot) in
+//            let value = snapshot.value as? NSDictionary
+//            let childVal = value?.allValues.first as? NSDictionary
+//
+//            let temperature = childVal?["Temperature"] as! Double
+//            let string = String(format: "%.2f", temperature)
+//            do{
+////                try self.dummyLabel.text = string
+//            } catch{
+//                print("dummyLabel error")
+//            }
+//
+//        })
     }
     
 

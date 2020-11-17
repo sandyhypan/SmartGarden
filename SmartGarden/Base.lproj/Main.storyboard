@@ -79,7 +79,7 @@
             <objects>
                 <viewController id="z6y-wj-re1" customClass="SignUpViewController" customModule="SmartGarden" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AiD-ba-B72">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KqQ-et-gCZ">
@@ -239,6 +239,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="autoWateringSwitch" destination="MBn-v4-IRQ" id="w0f-md-J7h"/>
+                        <outlet property="plantImageView" destination="zmP-Sp-phT" id="LhW-xO-myy"/>
+                        <outlet property="plantNameLabel" destination="3C3-zK-9DS" id="QHi-tH-g6q"/>
+                        <outlet property="waterTankVolume" destination="FHP-GK-A2V" id="DCX-PF-Djy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="psB-bq-EFD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -516,7 +522,7 @@
             <objects>
                 <viewController id="ATD-X2-Thl" customClass="AddPlantViewController" customModule="SmartGarden" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f9p-2q-5FZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plant Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oev-KB-pEc">
@@ -560,12 +566,16 @@
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c7l-8P-MbH">
                                 <rect key="frame" x="16" y="53" width="101" height="87"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="101" id="2dr-L9-9QU"/>
+                                    <constraint firstAttribute="height" constant="87" id="zBN-eK-lbY"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwL-So-CXA">
-                                <rect key="frame" x="296" y="16" width="102" height="30"/>
+                                <rect key="frame" x="309" y="16" width="89" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="102" id="gs9-Rr-b1N"/>
+                                    <constraint firstAttribute="width" constant="89" id="myy-jw-G6o"/>
                                 </constraints>
                                 <state key="normal" title="Select Image">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -575,48 +585,47 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="888-Db-YoY">
-                                <rect key="frame" x="16" y="413" width="382" height="30"/>
+                                <rect key="frame" x="16" y="405" width="382" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="savePlant:" destination="ATD-X2-Thl" eventType="touchUpInside" id="tTn-Iy-dAr"/>
-                                    <segue destination="ter-nn-7XB" kind="show" identifier="savePlantSegue" id="lRY-OQ-gvL"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Oev-KB-pEc" firstAttribute="centerX" secondItem="f9p-2q-5FZ" secondAttribute="centerX" id="0zb-zO-pfY"/>
-                            <constraint firstItem="HuH-BP-sNW" firstAttribute="trailing" secondItem="888-Db-YoY" secondAttribute="trailing" id="1ok-vC-syx"/>
-                            <constraint firstItem="phM-ib-PKt" firstAttribute="top" secondItem="O8U-be-XUy" secondAttribute="bottom" constant="16" id="7Nh-nC-gk8"/>
-                            <constraint firstItem="46K-1b-8n4" firstAttribute="top" secondItem="zeA-WM-1Oa" secondAttribute="top" constant="16" id="98T-l4-2gZ"/>
-                            <constraint firstItem="O8U-be-XUy" firstAttribute="top" secondItem="Oev-KB-pEc" secondAttribute="bottom" constant="8" id="9ni-9a-mSR"/>
-                            <constraint firstItem="Oev-KB-pEc" firstAttribute="leading" secondItem="O8U-be-XUy" secondAttribute="leading" id="DmP-1g-EWj"/>
-                            <constraint firstItem="c7l-8P-MbH" firstAttribute="leading" secondItem="Oev-KB-pEc" secondAttribute="leading" id="JQv-pL-cnP"/>
-                            <constraint firstItem="G58-ah-w1x" firstAttribute="leading" secondItem="yID-LA-bfK" secondAttribute="leading" id="Jgj-nM-Kvr"/>
-                            <constraint firstItem="c7l-8P-MbH" firstAttribute="top" secondItem="46K-1b-8n4" secondAttribute="bottom" constant="16" id="O1B-Cm-3y8"/>
-                            <constraint firstItem="zeA-WM-1Oa" firstAttribute="trailing" secondItem="c7l-8P-MbH" secondAttribute="trailing" constant="297" id="O7X-8H-QuA"/>
-                            <constraint firstItem="888-Db-YoY" firstAttribute="top" secondItem="HuH-BP-sNW" secondAttribute="bottom" constant="38" id="OTV-iV-2qF"/>
-                            <constraint firstItem="46K-1b-8n4" firstAttribute="leading" secondItem="c7l-8P-MbH" secondAttribute="leading" id="PnE-VW-xPY"/>
-                            <constraint firstItem="G58-ah-w1x" firstAttribute="trailing" secondItem="yID-LA-bfK" secondAttribute="trailing" id="Ry1-Nq-pxB"/>
-                            <constraint firstItem="46K-1b-8n4" firstAttribute="leading" secondItem="zeA-WM-1Oa" secondAttribute="leading" constant="16" id="SSr-Wz-4hB"/>
-                            <constraint firstItem="HuH-BP-sNW" firstAttribute="top" secondItem="yID-LA-bfK" secondAttribute="bottom" constant="8" id="WyA-Eb-2TA"/>
-                            <constraint firstItem="hwL-So-CXA" firstAttribute="trailing" secondItem="Oev-KB-pEc" secondAttribute="trailing" id="XhB-VZ-nn7"/>
-                            <constraint firstItem="G58-ah-w1x" firstAttribute="top" secondItem="phM-ib-PKt" secondAttribute="bottom" constant="8" id="ZOX-4q-t1t"/>
-                            <constraint firstItem="O8U-be-XUy" firstAttribute="trailing" secondItem="phM-ib-PKt" secondAttribute="trailing" id="ZTa-yQ-eoF"/>
-                            <constraint firstItem="46K-1b-8n4" firstAttribute="top" secondItem="hwL-So-CXA" secondAttribute="top" id="Zmc-xu-e02"/>
-                            <constraint firstItem="phM-ib-PKt" firstAttribute="trailing" secondItem="G58-ah-w1x" secondAttribute="trailing" id="dp7-b1-ak4"/>
-                            <constraint firstItem="phM-ib-PKt" firstAttribute="leading" secondItem="G58-ah-w1x" secondAttribute="leading" id="f0N-on-Tkj"/>
-                            <constraint firstItem="yID-LA-bfK" firstAttribute="top" secondItem="G58-ah-w1x" secondAttribute="bottom" constant="16" id="iAM-kt-lFf"/>
-                            <constraint firstItem="HuH-BP-sNW" firstAttribute="leading" secondItem="888-Db-YoY" secondAttribute="leading" id="ihE-Q4-7U8"/>
-                            <constraint firstItem="yID-LA-bfK" firstAttribute="leading" secondItem="HuH-BP-sNW" secondAttribute="leading" id="khJ-a5-KNe"/>
-                            <constraint firstItem="zeA-WM-1Oa" firstAttribute="bottom" secondItem="888-Db-YoY" secondAttribute="bottom" constant="365" id="m6u-A2-L47"/>
-                            <constraint firstItem="Oev-KB-pEc" firstAttribute="trailing" secondItem="O8U-be-XUy" secondAttribute="trailing" id="ocM-Ha-Dve"/>
-                            <constraint firstItem="yID-LA-bfK" firstAttribute="trailing" secondItem="HuH-BP-sNW" secondAttribute="trailing" id="ojL-vd-fdb"/>
-                            <constraint firstItem="Oev-KB-pEc" firstAttribute="top" secondItem="c7l-8P-MbH" secondAttribute="bottom" constant="14" id="pYQ-lT-eZH"/>
-                            <constraint firstItem="O8U-be-XUy" firstAttribute="leading" secondItem="phM-ib-PKt" secondAttribute="leading" id="yAq-Fb-MKo"/>
+                            <constraint firstItem="hwL-So-CXA" firstAttribute="top" secondItem="zeA-WM-1Oa" secondAttribute="top" constant="16" id="0it-QU-Jd4"/>
+                            <constraint firstItem="Oev-KB-pEc" firstAttribute="leading" secondItem="zeA-WM-1Oa" secondAttribute="leading" constant="16" id="2qy-K5-cRT"/>
+                            <constraint firstItem="Oev-KB-pEc" firstAttribute="top" secondItem="c7l-8P-MbH" secondAttribute="bottom" constant="14" id="3sy-Ds-gEw"/>
+                            <constraint firstItem="888-Db-YoY" firstAttribute="leading" secondItem="zeA-WM-1Oa" secondAttribute="leading" constant="16" id="464-5m-i9G"/>
+                            <constraint firstItem="G58-ah-w1x" firstAttribute="leading" secondItem="zeA-WM-1Oa" secondAttribute="leading" constant="16" id="8bK-zJ-8Lt"/>
+                            <constraint firstItem="HuH-BP-sNW" firstAttribute="top" secondItem="yID-LA-bfK" secondAttribute="bottom" constant="8" id="9dZ-j0-Yf2"/>
+                            <constraint firstItem="zeA-WM-1Oa" firstAttribute="trailing" secondItem="yID-LA-bfK" secondAttribute="trailing" constant="16" id="Bj8-gR-TOT"/>
+                            <constraint firstItem="zeA-WM-1Oa" firstAttribute="trailing" secondItem="HuH-BP-sNW" secondAttribute="trailing" constant="16" id="Eho-gs-WrP"/>
+                            <constraint firstItem="zeA-WM-1Oa" firstAttribute="trailing" secondItem="phM-ib-PKt" secondAttribute="trailing" constant="16" id="FKZ-Nh-9EU"/>
+                            <constraint firstItem="c7l-8P-MbH" firstAttribute="top" secondItem="46K-1b-8n4" secondAttribute="bottom" constant="16" id="GXr-IF-yQ0"/>
+                            <constraint firstItem="O8U-be-XUy" firstAttribute="leading" secondItem="zeA-WM-1Oa" secondAttribute="leading" constant="16" id="GjF-Qm-ALq"/>
+                            <constraint firstItem="hwL-So-CXA" firstAttribute="leading" secondItem="46K-1b-8n4" secondAttribute="trailing" constant="203" id="HBC-SH-c6x"/>
+                            <constraint firstItem="yID-LA-bfK" firstAttribute="top" secondItem="G58-ah-w1x" secondAttribute="bottom" constant="16" id="Hk8-I2-n8f"/>
+                            <constraint firstItem="yID-LA-bfK" firstAttribute="leading" secondItem="zeA-WM-1Oa" secondAttribute="leading" constant="16" id="IfL-mO-hMa"/>
+                            <constraint firstItem="phM-ib-PKt" firstAttribute="leading" secondItem="zeA-WM-1Oa" secondAttribute="leading" constant="16" id="MTi-Lh-KUn"/>
+                            <constraint firstItem="zeA-WM-1Oa" firstAttribute="trailing" secondItem="888-Db-YoY" secondAttribute="trailing" constant="16" id="MYD-aA-qDt"/>
+                            <constraint firstItem="zeA-WM-1Oa" firstAttribute="trailing" secondItem="c7l-8P-MbH" secondAttribute="trailing" constant="297" id="PEg-UT-lIG"/>
+                            <constraint firstItem="zeA-WM-1Oa" firstAttribute="trailing" secondItem="hwL-So-CXA" secondAttribute="trailing" constant="16" id="Ses-Ai-cGm"/>
+                            <constraint firstItem="zeA-WM-1Oa" firstAttribute="trailing" secondItem="G58-ah-w1x" secondAttribute="trailing" constant="16" id="aFQ-h1-cuK"/>
+                            <constraint firstItem="46K-1b-8n4" firstAttribute="leading" secondItem="zeA-WM-1Oa" secondAttribute="leading" constant="16" id="aT5-1c-DRK"/>
+                            <constraint firstItem="phM-ib-PKt" firstAttribute="top" secondItem="O8U-be-XUy" secondAttribute="bottom" constant="16" id="bmf-yZ-uBi"/>
+                            <constraint firstItem="46K-1b-8n4" firstAttribute="top" secondItem="zeA-WM-1Oa" secondAttribute="top" constant="16" id="dmo-6U-eOU"/>
+                            <constraint firstItem="zeA-WM-1Oa" firstAttribute="trailing" secondItem="Oev-KB-pEc" secondAttribute="trailing" constant="16" id="e1z-zL-M3o"/>
+                            <constraint firstItem="O8U-be-XUy" firstAttribute="top" secondItem="Oev-KB-pEc" secondAttribute="bottom" constant="8" id="iF6-sy-nXO"/>
+                            <constraint firstItem="888-Db-YoY" firstAttribute="top" secondItem="HuH-BP-sNW" secondAttribute="bottom" constant="30" id="pXw-MJ-srg"/>
+                            <constraint firstItem="c7l-8P-MbH" firstAttribute="leading" secondItem="zeA-WM-1Oa" secondAttribute="leading" constant="16" id="r5C-hM-DxP"/>
+                            <constraint firstItem="G58-ah-w1x" firstAttribute="top" secondItem="phM-ib-PKt" secondAttribute="bottom" constant="8" id="wI0-zY-roc"/>
+                            <constraint firstItem="HuH-BP-sNW" firstAttribute="leading" secondItem="zeA-WM-1Oa" secondAttribute="leading" constant="16" id="y09-ik-Tzw"/>
+                            <constraint firstItem="zeA-WM-1Oa" firstAttribute="trailing" secondItem="O8U-be-XUy" secondAttribute="trailing" constant="16" id="zZh-XZ-3Pt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zeA-WM-1Oa"/>
                     </view>
@@ -626,11 +635,12 @@
                         <outlet property="plantImage" destination="c7l-8P-MbH" id="3jW-Om-2cF"/>
                         <outlet property="plantNameTextfield" destination="O8U-be-XUy" id="zXk-f4-pZK"/>
                         <outlet property="waterTankVolumeTextField" destination="G58-ah-w1x" id="JIv-9w-ZZZ"/>
+                        <segue destination="ter-nn-7XB" kind="show" identifier="savePlantSegue" id="nJF-pO-qNc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ah6-5Y-m3B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7250.7246376811599" y="-380.35714285714283"/>
+            <point key="canvasLocation" x="7019" y="-380"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vBi-q1-3zT">
@@ -652,8 +662,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lRY-OQ-gvL"/>
-        <segue reference="Dzh-Ez-Tny"/>
+        <segue reference="nJF-pO-qNc"/>
+        <segue reference="ykW-rx-jj4"/>
         <segue reference="veR-aC-W5H"/>
     </inferredMetricsTieBreakers>
     <resources>
