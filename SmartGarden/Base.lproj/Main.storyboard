@@ -168,7 +168,7 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MBn-v4-IRQ">
                                 <rect key="frame" x="315.5" y="193" width="51" height="31"/>
                             </switch>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FHP-GK-A2V" customClass="CosmosView" customModule="Cosmos">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FHP-GK-A2V" customClass="CosmosView" customModule="Cosmos">
                                 <rect key="frame" x="20" y="201" width="137" height="25"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -185,7 +185,7 @@
                                     <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="drop_empty"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moisture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1s-sH-tVd">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Moisture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1s-sH-tVd">
                                 <rect key="frame" x="20" y="282" width="67" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -663,14 +663,10 @@
             <point key="canvasLocation" x="2956.521739130435" y="129.91071428571428"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="FHP-GK-A2V">
-            <size key="intrinsicContentSize" width="137" height="25"/>
-        </designable>
-    </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="9T9-yN-Uqv"/>
-        <segue reference="nJF-pO-qNc"/>
+        <segue reference="vtd-HV-l8g"/>
+        <segue reference="eOA-yA-Dki"/>
+        <segue reference="UNE-fg-qZb"/>
         <segue reference="ykW-rx-jj4"/>
         <segue reference="veR-aC-W5H"/>
     </inferredMetricsTieBreakers>
