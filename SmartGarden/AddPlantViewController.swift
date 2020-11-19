@@ -75,7 +75,6 @@ class AddPlantViewController: UIViewController, UIImagePickerControllerDelegate,
             let _ = databaseController?.addPlant(plantName: plantName, ipAddress: ipAddress!, macAddress: deviceUUID!, plantPhoto: plantImageData)
             
             //Post user preferences to Pi
-            
             //moisture level http call
             let moistureUrlString = "http://\(ipAddress!):5000/setMoisture/\(moistureLevelTextField.text!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             let moistureURL = URL(string: moistureUrlString!)

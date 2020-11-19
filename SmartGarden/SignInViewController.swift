@@ -20,7 +20,7 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        passwordTextField.setUpRightButton()
         emailTextField.delegate = self
         passwordTextField.delegate = self
     }
@@ -31,6 +31,9 @@ class SignInViewController: UIViewController {
 //
 //        }
 //    }
+    
+    
+    
     
     @IBAction func signIn(_ sender: Any) {
         if emailTextField.text != "" && passwordTextField.text != ""{
@@ -82,5 +85,36 @@ extension SignInViewController: UITextFieldDelegate{
         textField.resignFirstResponder()
         return true
     }
+}
+
+/*Reference: https://stackoverflow.com/questions/37873119/how-to-toggle-a-uitextfield-secure-text-entry-hide-password-in-swift
+ */
+
+extension UITextField{
+    fileprivate func toggleImage(_ rightButton: UIButton){
+        if(isSecureTextEntry){
+            rightButton.setImage(UIImage(named: "invisible"), for: .normal)
+        } else {
+            rightButton.setImage(UIImage(named: "visible"), for: .normal)
+        }
+        
+    }
+    
+    func setUpRightButton(){
+        let rightButton = UIButton(type: .custom)
+        toggleImage(rightButton)
+        rightButton.frame = CGRect(x: CGFloat(self.frame.size.width - 25), y: CGFloat(5), width: CGFloat(25), height: CGFloat(25))
+        rightButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
+        rightButton.addTarget(self, action: #selector(self.toggleVisibility), for: .touchUpInside)
+        self.rightView = rightButton
+        self.rightViewMode = .always
+        
+    }
+    
+    @IBAction func toggleVisibility(_ sender: Any){
+        self.isSecureTextEntry.toggle()
+        toggleImage(sender as! UIButton)
+    }
+    
 }
 

@@ -16,7 +16,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        passwordTextField.setUpRightButton()
+        confirmPasswordTextField.setUpRightButton()
         // Do any additional setup after loading the view.
         confirmPasswordTextField.delegate = self
         passwordTextField.delegate = self
@@ -82,3 +83,6 @@ extension SignUpViewController	: UITextFieldDelegate{
         return true
     }
 }
+
+
+

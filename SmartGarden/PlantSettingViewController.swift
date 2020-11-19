@@ -12,8 +12,6 @@ class PlantSettingViewController: UIViewController {
     @IBOutlet weak var plantNameTextField: UITextField!
     
     @IBOutlet weak var plantImage: UIImageView!
-    @IBOutlet weak var soilTempTextField: UITextField!
-    @IBOutlet weak var lightLevelTextField: UITextField!
     @IBOutlet weak var moistureLevelTextField: UITextField!
     @IBOutlet weak var waterTankVolumeTextField: UITextField!
     override func viewDidLoad() {
