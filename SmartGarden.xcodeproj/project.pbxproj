@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3AC006C62566BA990061C511 /* Authenticate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC006C52566BA990061C511 /* Authenticate.swift */; };
+		3AC006C92566BDF00061C511 /* Authenticate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC006C82566BDF00061C511 /* Authenticate.swift */; };
 		3AD4740B2560F6FC00ED9271 /* DisplayMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD4740A2560F6FC00ED9271 /* DisplayMessages.swift */; };
 		3AD474262560F8D000ED9271 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD474252560F8D000ED9271 /* Validator.swift */; };
 		B984DE092550D9E700B69DE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B984DE082550D9E700B69DE4 /* AppDelegate.swift */; };
@@ -39,7 +39,7 @@
 		0924476442ED70224230CACB /* Pods-SmartGarden.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartGarden.debug.xcconfig"; path = "Target Support Files/Pods-SmartGarden/Pods-SmartGarden.debug.xcconfig"; sourceTree = "<group>"; };
 		16B67BEBB5D0F608785E8DB9 /* Pods_SmartGarden.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartGarden.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		369B796E584592D6AF4FC54D /* Pods-SmartGarden.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartGarden.release.xcconfig"; path = "Target Support Files/Pods-SmartGarden/Pods-SmartGarden.release.xcconfig"; sourceTree = "<group>"; };
-		3AC006C52566BA990061C511 /* Authenticate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Authenticate.swift; path = ../../../../../.Trash/Authenticate.swift; sourceTree = "<group>"; };
+		3AC006C82566BDF00061C511 /* Authenticate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticate.swift; sourceTree = "<group>"; };
 		3AD4740A2560F6FC00ED9271 /* DisplayMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMessages.swift; sourceTree = "<group>"; };
 		3AD474252560F8D000ED9271 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		B984DE052550D9E700B69DE4 /* SmartGarden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartGarden.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,7 +85,7 @@
 			children = (
 				3AD4740A2560F6FC00ED9271 /* DisplayMessages.swift */,
 				3AD474252560F8D000ED9271 /* Validator.swift */,
-				3AC006C52566BA990061C511 /* Authenticate.swift */,
+				3AC006C82566BDF00061C511 /* Authenticate.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -288,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AC006C92566BDF00061C511 /* Authenticate.swift in Sources */,
 				B984DE212550E84100B69DE4 /* SignUpViewController.swift in Sources */,
 				B984DE1D2550E0DA00B69DE4 /* SignInViewController.swift in Sources */,
 				B984DE2A2550E8F100B69DE4 /* PlantSettingViewController.swift in Sources */,
@@ -296,7 +297,6 @@
 				B984DE51255E568E00B69DE4 /* CoreDataController.swift in Sources */,
 				B984DE092550D9E700B69DE4 /* AppDelegate.swift in Sources */,
 				B984DE0B2550D9E700B69DE4 /* SceneDelegate.swift in Sources */,
-				3AC006C62566BA990061C511 /* Authenticate.swift in Sources */,
 				3AD4740B2560F6FC00ED9271 /* DisplayMessages.swift in Sources */,
 				B984DE1F2550E57F00B69DE4 /* HomeTableViewController.swift in Sources */,
 				B984DE47255E51B200B69DE4 /* SensorData.swift in Sources */,
