@@ -12,7 +12,7 @@
         <!--Smart Garden-->
         <scene sceneID="nhe-kx-wUd">
             <objects>
-                <viewController id="TBr-70-z72" customClass="SignInViewController" customModule="SmartGarden" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" id="TBr-70-z72" customClass="SignInViewController" customModule="SmartGarden" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gyp-Wl-qlt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -412,7 +412,7 @@
         <!--Home-->
         <scene sceneID="99L-hr-1pP">
             <objects>
-                <tableViewController title="Home" id="ter-nn-7XB" customClass="HomeTableViewController" customModule="SmartGarden" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="home" title="Home" id="ter-nn-7XB" customClass="HomeTableViewController" customModule="SmartGarden" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Sgx-AK-flI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -664,10 +664,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vtd-HV-l8g"/>
-        <segue reference="eOA-yA-Dki"/>
         <segue reference="UNE-fg-qZb"/>
-        <segue reference="ykW-rx-jj4"/>
+        <segue reference="Dzh-Ez-Tny"/>
         <segue reference="veR-aC-W5H"/>
     </inferredMetricsTieBreakers>
     <resources>
