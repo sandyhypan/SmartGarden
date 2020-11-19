@@ -59,7 +59,7 @@ class PairingViewController: UIViewController {
                     DispatchQueue.main.async {
                         self.ipAddress = inputText
                         self.deviceUUID = String(decoding: data, as: UTF8.self)
-                        self.performSegue(withIdentifier: "addPlantSegue", sender: (Any).self)
+                        self.performSegue(withIdentifier: "addPlantSegue", sender: self)
                     }
             }
                 getUUIDTask.resume()
@@ -67,7 +67,6 @@ class PairingViewController: UIViewController {
                 DisplayMessages.displayAlert(title: "Invalid IP format", message: "Please double check the format of the IP address.")
             }
         }
-        self.performSegue(withIdentifier: "addPlantSegue", sender: self)
     }
     
 
