@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class HomeTableViewController: UITableViewController, DatabaseListener {
     
@@ -32,6 +33,24 @@ class HomeTableViewController: UITableViewController, DatabaseListener {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         databaseController?.removeListener(listener: self)
+    }
+    
+    @IBAction func logout(_ sender: Any) {
+        // Clear user data
+        do {
+            // Clear firebase auth data
+            try Auth.auth().signOut()
+            // Clear core data
+            
+        } catch {
+            DisplayMessages.displayAlert(title: "Logout failed", message: "An unknown error occured. Please try again later")
+        }
+        
+        // Go back to login screen
+        let loginViewController = storyboard?.instantiateViewController(withIdentifier: "login") as! SignInViewController
+        let navigationController = UINavigationController(rootViewController: loginViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        self.present(navigationController, animated: true, completion: nil)
     }
     
     
