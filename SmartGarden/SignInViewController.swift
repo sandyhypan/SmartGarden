@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import FirebaseDatabase
 import Firebase
 
 class SignInViewController: UIViewController {
@@ -17,23 +16,24 @@ class SignInViewController: UIViewController {
     
     var dismissKeyboardTapGesture: UIGestureRecognizer?
     
-    weak var loginHandle: AuthStateDidChangeListenerHandle?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         passwordTextField.setUpRightButton()
         emailTextField.delegate = self
         passwordTextField.delegate = self
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         // Get notification for keyboard appearing and closing
         NotificationCenter.default.addObserver(self, selector: #selector(SignInViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(SignInViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         // Remove the notification observer
         NotificationCenter.default.removeObserver(self)
+        dismissKeyboard(sender: self)
         
         super.viewWillDisappear(animated)
     }
@@ -62,7 +62,7 @@ class SignInViewController: UIViewController {
         
         // Minus view height with the keyboard height to move everything upwards
         if self.view.frame.origin.y == 0 {
-            self.view.frame.origin.y -= (keyboardFrame.height - 50)
+            self.view.frame.origin.y -= (keyboardFrame.height - 200)
         }
         
     }
@@ -85,7 +85,7 @@ class SignInViewController: UIViewController {
         
         // Add view height with the keyboard height to move everything upwards
         if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y += (keyboardFrame.height - 50)
+            self.view.frame.origin.y += (keyboardFrame.height - 200)
         }
     }
 
