@@ -17,14 +17,43 @@ class PairingViewController: UIViewController {
     var uid: String?
     var ipAddress: String?
     
+    var dismissKeyboardTapGesture: UIGestureRecognizer?
+    
+    let loadingIndicator: ProgressView = {
+        let progress = ProgressView(colors: [.red, .systemGreen, .systemBlue], lineWidth: 5)
+        progress.translatesAutoresizingMaskIntoConstraints = false
+        return progress
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        dismissKeyboardTapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        self.view.addGestureRecognizer(dismissKeyboardTapGesture!)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.view.removeGestureRecognizer(dismissKeyboardTapGesture!)
+        dismissKeyboardTapGesture = nil
+    }
+    
+    @objc func dismissKeyboard(sender: AnyObject){
+        ipUITextField.resignFirstResponder()
+    }
+    
+    
     @IBAction func nextButton(_ sender: Any) {
         let inputText = ipUITextField.text!
+        ipUITextField.resignFirstResponder()
+        self.view.addSubview(loadingIndicator)
+        
+        NSLayoutConstraint.activate([loadingIndicator.centerXAnchor.constraint(equalTo: self.view.centerXAnchor), loadingIndicator.centerYAnchor.constraint(equalTo: self.view.centerYAnchor), loadingIndicator.widthAnchor.constraint(equalToConstant: 50), loadingIndicator.heightAnchor.constraint(equalTo: self.loadingIndicator.widthAnchor)])
+        
+        loadingIndicator.isAnimating = true
 
         // Check if the user input a valid ip address
         if inputText != ""{
@@ -50,6 +79,8 @@ class PairingViewController: UIViewController {
 
                     guard let data = data else{
                         DispatchQueue.main.async {
+                            self.loadingIndicator.isAnimating = false
+                            self.ipUITextField.becomeFirstResponder()
                             DisplayMessages.displayAlert(title: "Pairing failed.", message: "Please make sure the device is at the same network and the IP address is correct.")
                         }
                         return
@@ -57,6 +88,7 @@ class PairingViewController: UIViewController {
 
                     // Get the UUID of the sensor system
                     DispatchQueue.main.async {
+                        self.loadingIndicator.isAnimating = false
                         self.ipAddress = inputText
                         self.deviceUUID = String(decoding: data, as: UTF8.self)
                         self.performSegue(withIdentifier: "addPlantSegue", sender: self)
