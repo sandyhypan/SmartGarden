@@ -2,7 +2,7 @@
 //  Authenticate.swift
 //  SmartGarden
 //
-//  Created by Adrian Yip on 15/11/20.
+//  Created by Adrian Yip on 20/11/20.
 //  Copyright © 2020 Sandy Pan. All rights reserved.
 //
 
