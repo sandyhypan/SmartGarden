@@ -62,7 +62,7 @@ class SignInViewController: UIViewController {
         
         // Minus view height with the keyboard height to move everything upwards
         if self.view.frame.origin.y == 0 {
-            self.view.frame.origin.y -= (keyboardFrame.height - 200)
+            self.view.frame.origin.y -= (keyboardFrame.height - 60)
         }
         
     }
@@ -85,7 +85,7 @@ class SignInViewController: UIViewController {
         
         // Add view height with the keyboard height to move everything upwards
         if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y += (keyboardFrame.height - 200)
+            self.view.frame.origin.y += (keyboardFrame.height - 60)
         }
     }
 
