@@ -18,9 +18,13 @@ class PlantViewController: UIViewController {
     @IBOutlet weak var plantImageView: UIImageView!
     var ref: DatabaseReference?
     var plant: Plant?
+    var userID: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let userDefaults = UserDefaults.standard
+        userID = userDefaults.string(forKey: "uid")!
+        retrievePlantData(userID: userID)
         plantNameLabel.text = plant?.plantName
         plantImageView.image = UIImage(data: (plant?.plantPhoto)!)
 
@@ -43,6 +47,13 @@ class PlantViewController: UIViewController {
 //        })
     }
     
+    func retrievePlantData(userID :String){
+        ref?.observe(.value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            let childVal = value?.allValues.first as? NSDictionary
+            print("childVal: \(childVal)")
+        })
+    }
 
     /*
     // MARK: - Navigation
