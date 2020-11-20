@@ -82,7 +82,6 @@ class PairingViewController: UIViewController {
         if segue.identifier == "addPlantSegue"{
             let destination = segue.destination as! AddPlantViewController
             destination.deviceUUID = deviceUUID
-            destination.uid = uid
             destination.ipAddress = ipAddress
             
         }
