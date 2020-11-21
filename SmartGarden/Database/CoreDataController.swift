@@ -8,8 +8,10 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 class CoreDataController: NSObject, NSFetchedResultsControllerDelegate, DatabaseProtocol {
+    
     
     var listeners = MulticastDelegate<DatabaseListener>()
     var persistentContainer : NSPersistentContainer
@@ -47,6 +49,34 @@ class CoreDataController: NSObject, NSFetchedResultsControllerDelegate, Database
     func deletePlant(plant: Plant) {
         persistentContainer.viewContext.delete(plant)
     }
+    
+    func deleteAllPlants(){
+        let fetchRequests = NSFetchRequest<NSFetchRequestResult>(entityName: "Plant")
+        
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequests)
+        
+        do{
+            try persistentContainer.viewContext.execute(batchDeleteRequest)
+        } catch let error{
+            fatalError("Failed to delete Core Data: \(error.localizedDescription)")
+        }
+//        guard let url = persistentContainer.persistentStoreDescriptions.first?.url else {
+//            return
+//        }
+//
+//        do{
+//            try persistentContainer.persistentStoreCoordinator.destroyPersistentStore(at: url, ofType: NSSQLiteStoreType, options: nil)
+//        } catch let error{
+//            fatalError("Failed to delete Core Data: \(error.localizedDescription)")
+//        }
+        
+        
+    }
+    
+    func getAllPlants() -> [Plant] {
+        return fetchAllPlants()
+    }
+    
     
     func addPlant(plantName: String, ipAddress: String, macAddress: String, plantPhoto: Data?) -> Plant {
         let plant = NSEntityDescription.insertNewObject(forEntityName: "Plant", into: persistentContainer.viewContext) as! Plant
@@ -115,5 +145,7 @@ class CoreDataController: NSObject, NSFetchedResultsControllerDelegate, Database
         
         return plants
     }
+    
+    
     
 }

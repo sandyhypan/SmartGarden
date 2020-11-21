@@ -16,12 +16,17 @@ class SignInViewController: UIViewController {
     
     var dismissKeyboardTapGesture: UIGestureRecognizer?
     
+    let loadingIndicator: ProgressView = {
+        let progress = ProgressView(colors: [.red, .systemGreen, .systemBlue], lineWidth: 5)
+        progress.translatesAutoresizingMaskIntoConstraints = false
+        return progress
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         passwordTextField.setUpRightButton()
         emailTextField.delegate = self
         passwordTextField.delegate = self
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,11 +95,15 @@ class SignInViewController: UIViewController {
     }
 
     
-    
-    
-    
     @IBAction func signIn(_ sender: Any) {
         if emailTextField.text != "" && passwordTextField.text != ""{
+            dismissKeyboard(sender: self)
+            self.view.addSubview(loadingIndicator)
+            NSLayoutConstraint.activate([loadingIndicator.centerXAnchor.constraint(equalTo: self.view.centerXAnchor), loadingIndicator.centerYAnchor.constraint(equalTo: self.view.centerYAnchor), loadingIndicator.widthAnchor.constraint(equalToConstant: 50), loadingIndicator.heightAnchor.constraint(equalTo: self.loadingIndicator.widthAnchor)])
+            
+            loadingIndicator.isAnimating = true
+
+            
             let email = emailTextField.text!
             let password = passwordTextField.text!
             
@@ -102,8 +111,10 @@ class SignInViewController: UIViewController {
             // The input format is valid
             if Validator.isValidEmail(email: email){
                 Auth.auth().signIn(withEmail: email, password: password, completion: { (authResult, error) in
+                    self.loadingIndicator.isAnimating = false
+                    
                     guard let user = authResult?.user, error == nil else {
-                        DisplayMessages.displayAlert(title: "An error occured.", message: error?.localizedDescription ?? "An unknown error occured. Please try again later.")
+                            DisplayMessages.displayAlert(title: "An error occured.", message: error?.localizedDescription ?? "An unknown error occured. Please try again later.")
                         return	
                     }
                     
