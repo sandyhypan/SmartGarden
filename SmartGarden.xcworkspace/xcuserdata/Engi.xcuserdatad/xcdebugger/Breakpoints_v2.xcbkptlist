@@ -7,64 +7,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5968A538-AD0F-4891-A31F-AD818B4A4AE5"
+            uuid = "DAD14D87-C10D-43E0-B852-5C84BEFF00BD"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartGarden/PlantViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "readSingleRecord(node:)"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "switchChange(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "92896BC7-2D7D-4282-BC25-01578B67D9D2"
+            uuid = "5B3431B1-B5A9-421B-8AF7-2763450CE2E2"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartGarden/PlantViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "readSingleRecord(node:)"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "switchChange(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D09AB028-2B59-410A-941B-250BFA30C7CB"
-            shouldBeEnabled = "No"
+            uuid = "51160694-C275-41A5-86C3-4061A0E48C5A"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartGarden/PlantViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "readSingleRecord(node:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "85FE116F-9FCC-4428-8B75-9F6175E2DEC4"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SmartGarden/PlantViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "readSingleRecord(node:)"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "setLineChart(dataEntryX:dataEntryY:lineChart:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

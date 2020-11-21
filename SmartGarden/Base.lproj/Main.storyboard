@@ -185,107 +185,169 @@
             <objects>
                 <viewController id="mNg-7c-Hbc" customClass="PlantViewController" customModule="SmartGarden" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="l4f-rP-2cK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1046"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_plant" translatesAutoresizingMaskIntoConstraints="NO" id="zmP-Sp-phT">
-                                <rect key="frame" x="20" y="12.5" width="120" height="120"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OKO-pb-EgP">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1009"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ykG-MU-AOt">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1009"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plant Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3C3-zK-9DS">
+                                                <rect key="frame" x="256" y="90" width="88" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FHP-GK-A2V" customClass="CosmosView" customModule="Cosmos">
+                                                <rect key="frame" x="20" y="211" width="140" height="25"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="DsG-mF-c1z"/>
+                                                    <constraint firstAttribute="width" constant="140" id="HMV-8s-bSY"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                        <real key="value" value="25"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="starMargin">
+                                                        <real key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
+                                                        <integer key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="drop_filled"/>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="drop_empty"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MBn-v4-IRQ">
+                                                <rect key="frame" x="295" y="206" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="switchChange:" destination="mNg-7c-Hbc" eventType="valueChanged" id="m9M-Bf-LgN"/>
+                                                </connections>
+                                            </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Auto Watering" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCB-bD-Rnw">
+                                                <rect key="frame" x="266" y="180.5" width="108" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Water Tank Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGm-rK-pfc">
+                                                <rect key="frame" x="20" y="180" width="147" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_plant" translatesAutoresizingMaskIntoConstraints="NO" id="zmP-Sp-phT">
+                                                <rect key="frame" x="20" y="40" width="120" height="120"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="4vC-OU-UK1"/>
+                                                    <constraint firstAttribute="height" constant="120" id="UYI-29-G8y"/>
+                                                    <constraint firstAttribute="width" constant="120" id="svf-MU-25z"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="60"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Soil Moisture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acS-Eu-lDm">
+                                                <rect key="frame" x="20" y="276" width="374" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cu0-xP-G3u" customClass="LineChartView" customModule="Charts">
+                                                <rect key="frame" x="0.0" y="307" width="414" height="200"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="200" id="EdQ-IS-EMQ"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Light" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQz-DY-5ex">
+                                                <rect key="frame" x="20" y="527" width="374" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQB-KY-BKh" customClass="LineChartView" customModule="Charts">
+                                                <rect key="frame" x="0.0" y="558" width="414" height="200"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="200" id="e36-pP-Hro"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZbM-0s-yFM">
+                                                <rect key="frame" x="20" y="778" width="374" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gdo-oK-dfq" customClass="LineChartView" customModule="Charts">
+                                                <rect key="frame" x="0.0" y="809" width="414" height="200"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="200" id="Sl8-TU-3vF"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="ZbM-0s-yFM" secondAttribute="trailing" constant="20" id="2XN-QN-zyL"/>
+                                            <constraint firstAttribute="bottom" secondItem="Gdo-oK-dfq" secondAttribute="bottom" id="3ER-2f-5az"/>
+                                            <constraint firstItem="zmP-Sp-phT" firstAttribute="leading" secondItem="ykG-MU-AOt" secondAttribute="leading" constant="20" id="5DC-sQ-Oll"/>
+                                            <constraint firstAttribute="trailing" secondItem="Cu0-xP-G3u" secondAttribute="trailing" id="5EU-Oo-XGJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="3C3-zK-9DS" secondAttribute="trailing" constant="70" id="80d-gs-TUb"/>
+                                            <constraint firstItem="qCB-bD-Rnw" firstAttribute="top" secondItem="3C3-zK-9DS" secondAttribute="bottom" constant="70" id="8GA-l8-psv"/>
+                                            <constraint firstItem="fQB-KY-BKh" firstAttribute="top" secondItem="wQz-DY-5ex" secondAttribute="bottom" constant="10" id="8x1-p5-CJG"/>
+                                            <constraint firstItem="Gdo-oK-dfq" firstAttribute="leading" secondItem="ykG-MU-AOt" secondAttribute="leading" id="9U7-wi-XIS"/>
+                                            <constraint firstItem="fQB-KY-BKh" firstAttribute="leading" secondItem="ykG-MU-AOt" secondAttribute="leading" id="AeE-hj-R1p"/>
+                                            <constraint firstItem="Cu0-xP-G3u" firstAttribute="top" secondItem="acS-Eu-lDm" secondAttribute="bottom" constant="10" id="CyH-lF-bya"/>
+                                            <constraint firstItem="acS-Eu-lDm" firstAttribute="top" secondItem="FHP-GK-A2V" secondAttribute="bottom" constant="40" id="HNM-UQ-D5m"/>
+                                            <constraint firstItem="3C3-zK-9DS" firstAttribute="top" secondItem="ykG-MU-AOt" secondAttribute="top" constant="90" id="NsC-gC-TaB"/>
+                                            <constraint firstItem="FHP-GK-A2V" firstAttribute="leading" secondItem="ykG-MU-AOt" secondAttribute="leading" constant="20" id="OQC-bt-RGC"/>
+                                            <constraint firstItem="MBn-v4-IRQ" firstAttribute="top" secondItem="qCB-bD-Rnw" secondAttribute="bottom" constant="5" id="QE2-8v-xTx"/>
+                                            <constraint firstAttribute="trailing" secondItem="MBn-v4-IRQ" secondAttribute="trailing" constant="70" id="SZR-WG-fym"/>
+                                            <constraint firstItem="ZbM-0s-yFM" firstAttribute="top" secondItem="fQB-KY-BKh" secondAttribute="bottom" constant="20" id="U7P-Q3-C2C"/>
+                                            <constraint firstItem="Gdo-oK-dfq" firstAttribute="top" secondItem="ZbM-0s-yFM" secondAttribute="bottom" constant="10" id="UkM-Bn-sZX"/>
+                                            <constraint firstItem="acS-Eu-lDm" firstAttribute="leading" secondItem="ykG-MU-AOt" secondAttribute="leading" constant="20" id="Wez-8y-o5W"/>
+                                            <constraint firstItem="ZGm-rK-pfc" firstAttribute="leading" secondItem="ykG-MU-AOt" secondAttribute="leading" constant="20" id="XxE-oJ-D3H"/>
+                                            <constraint firstAttribute="trailing" secondItem="qCB-bD-Rnw" secondAttribute="trailing" constant="40" id="Z7z-QC-Vfi"/>
+                                            <constraint firstAttribute="trailing" secondItem="wQz-DY-5ex" secondAttribute="trailing" constant="20" id="aQq-zF-3p3"/>
+                                            <constraint firstAttribute="trailing" secondItem="acS-Eu-lDm" secondAttribute="trailing" constant="20" id="aUP-TF-T39"/>
+                                            <constraint firstItem="zmP-Sp-phT" firstAttribute="top" secondItem="ykG-MU-AOt" secondAttribute="top" constant="40" id="bBB-sk-2uS"/>
+                                            <constraint firstItem="ZbM-0s-yFM" firstAttribute="leading" secondItem="ykG-MU-AOt" secondAttribute="leading" constant="20" id="cb6-05-Uxa"/>
+                                            <constraint firstItem="wQz-DY-5ex" firstAttribute="leading" secondItem="ykG-MU-AOt" secondAttribute="leading" constant="20" id="cmS-cx-BOV"/>
+                                            <constraint firstAttribute="trailing" secondItem="fQB-KY-BKh" secondAttribute="trailing" id="ejO-6c-bJI"/>
+                                            <constraint firstAttribute="trailing" secondItem="Gdo-oK-dfq" secondAttribute="trailing" id="fBn-VY-RJB"/>
+                                            <constraint firstItem="FHP-GK-A2V" firstAttribute="top" secondItem="ZGm-rK-pfc" secondAttribute="bottom" constant="10" id="j4s-aK-2Yq"/>
+                                            <constraint firstItem="Cu0-xP-G3u" firstAttribute="leading" secondItem="ykG-MU-AOt" secondAttribute="leading" id="r2u-oK-kTE"/>
+                                            <constraint firstItem="ZGm-rK-pfc" firstAttribute="top" secondItem="zmP-Sp-phT" secondAttribute="bottom" constant="20" id="tuI-Pk-CnT"/>
+                                            <constraint firstItem="wQz-DY-5ex" firstAttribute="top" secondItem="Cu0-xP-G3u" secondAttribute="bottom" constant="20" id="xwN-pg-j6e"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="UYI-29-G8y"/>
-                                    <constraint firstAttribute="width" constant="120" id="svf-MU-25z"/>
+                                    <constraint firstItem="ykG-MU-AOt" firstAttribute="width" secondItem="OKO-pb-EgP" secondAttribute="width" id="Mzp-6c-BYY"/>
+                                    <constraint firstItem="ykG-MU-AOt" firstAttribute="height" secondItem="OKO-pb-EgP" secondAttribute="height" priority="250" id="a7P-9c-RDN"/>
+                                    <constraint firstAttribute="bottom" secondItem="ykG-MU-AOt" secondAttribute="bottom" id="b28-Gc-sGO"/>
+                                    <constraint firstItem="ykG-MU-AOt" firstAttribute="leading" secondItem="OKO-pb-EgP" secondAttribute="leading" id="biy-Gv-oUX"/>
+                                    <constraint firstAttribute="trailing" secondItem="ykG-MU-AOt" secondAttribute="trailing" id="toq-4p-dgL"/>
+                                    <constraint firstItem="ykG-MU-AOt" firstAttribute="top" secondItem="OKO-pb-EgP" secondAttribute="top" id="v1r-Ag-vQn"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="60"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Water Tank Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGm-rK-pfc">
-                                <rect key="frame" x="20" y="167.5" width="147.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Auto Watering" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCB-bD-Rnw">
-                                <rect key="frame" x="286" y="164" width="108" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MBn-v4-IRQ">
-                                <rect key="frame" x="315.5" y="196" width="51" height="31"/>
-                                <connections>
-                                    <action selector="switchChange:" destination="mNg-7c-Hbc" eventType="valueChanged" id="kdb-Wf-zqX"/>
-                                </connections>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moisture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1s-sH-tVd">
-                                <rect key="frame" x="20" y="198" width="67" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Light" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YsT-32-ZwJ">
-                                <rect key="frame" x="20" y="534" width="39" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Soil Temperature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEb-Xe-0hc">
-                                <rect key="frame" x="20" y="752" width="129" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plant Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3C3-zK-9DS">
-                                <rect key="frame" x="249" y="62" width="88" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FHP-GK-A2V" customClass="CosmosView" customModule="Cosmos">
-                                <rect key="frame" x="20" y="137.5" width="140" height="25"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="DsG-mF-c1z"/>
-                                    <constraint firstAttribute="width" constant="140" id="HMV-8s-bSY"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="starSize">
-                                        <real key="value" value="25"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="starMargin">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="drop_filled"/>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="drop_empty"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
+                                <viewLayoutGuide key="contentLayoutGuide" id="RtP-Vn-GaH"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="UHX-99-hwk"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="3C3-zK-9DS" firstAttribute="centerY" secondItem="zmP-Sp-phT" secondAttribute="centerY" id="0U5-cf-brS"/>
-                            <constraint firstItem="CnX-ue-AxE" firstAttribute="bottom" secondItem="ZEb-Xe-0hc" secondAttribute="bottom" constant="35" id="0b3-zQ-o17"/>
-                            <constraint firstItem="CnX-ue-AxE" firstAttribute="trailing" secondItem="3C3-zK-9DS" secondAttribute="trailing" constant="77" id="4cT-Dx-lLt"/>
-                            <constraint firstItem="qCB-bD-Rnw" firstAttribute="trailing" secondItem="l4f-rP-2cK" secondAttribute="trailingMargin" id="5j2-RW-6wZ"/>
-                            <constraint firstItem="qCB-bD-Rnw" firstAttribute="baseline" secondItem="ZGm-rK-pfc" secondAttribute="baseline" id="6pR-u9-GGy"/>
-                            <constraint firstAttribute="bottom" secondItem="YsT-32-ZwJ" secondAttribute="bottom" constant="287" id="7U5-ul-xpf"/>
-                            <constraint firstItem="ZGm-rK-pfc" firstAttribute="leading" secondItem="FHP-GK-A2V" secondAttribute="leading" id="8oZ-iv-Cul"/>
-                            <constraint firstItem="ZGm-rK-pfc" firstAttribute="leading" secondItem="z1s-sH-tVd" secondAttribute="leading" id="9aD-dq-hmP"/>
-                            <constraint firstItem="zmP-Sp-phT" firstAttribute="leading" secondItem="CnX-ue-AxE" secondAttribute="leading" constant="20" id="As4-6G-5vi"/>
-                            <constraint firstItem="z1s-sH-tVd" firstAttribute="top" secondItem="ZGm-rK-pfc" secondAttribute="bottom" constant="10" id="F8a-yb-LWZ"/>
-                            <constraint firstItem="qCB-bD-Rnw" firstAttribute="centerX" secondItem="MBn-v4-IRQ" secondAttribute="centerX" id="GC4-np-cb2"/>
-                            <constraint firstItem="FHP-GK-A2V" firstAttribute="leading" secondItem="CnX-ue-AxE" secondAttribute="leading" constant="20" id="Wec-OI-4xy"/>
-                            <constraint firstItem="ZGm-rK-pfc" firstAttribute="leading" secondItem="ZEb-Xe-0hc" secondAttribute="leading" id="X7r-QL-n6V"/>
-                            <constraint firstItem="ZGm-rK-pfc" firstAttribute="leading" secondItem="YsT-32-ZwJ" secondAttribute="leading" id="cbY-qw-INy"/>
-                            <constraint firstItem="3C3-zK-9DS" firstAttribute="top" secondItem="CnX-ue-AxE" secondAttribute="top" constant="62" id="h9p-St-a2X"/>
-                            <constraint firstItem="ZGm-rK-pfc" firstAttribute="top" secondItem="zmP-Sp-phT" secondAttribute="bottom" constant="35" id="hyk-QF-EhS"/>
-                            <constraint firstItem="qCB-bD-Rnw" firstAttribute="top" secondItem="3C3-zK-9DS" secondAttribute="bottom" constant="81" id="lDS-3V-9LV"/>
-                            <constraint firstItem="ZGm-rK-pfc" firstAttribute="leading" secondItem="l4f-rP-2cK" secondAttribute="leadingMargin" id="mXZ-bo-JPY"/>
-                            <constraint firstItem="MBn-v4-IRQ" firstAttribute="top" secondItem="qCB-bD-Rnw" secondAttribute="bottom" constant="8" id="t9G-ga-7Rk"/>
-                            <constraint firstItem="FHP-GK-A2V" firstAttribute="top" secondItem="zmP-Sp-phT" secondAttribute="bottom" constant="5" id="wFj-Gq-MGb"/>
+                            <constraint firstItem="OKO-pb-EgP" firstAttribute="height" secondItem="l4f-rP-2cK" secondAttribute="height" multiplier="0.92" id="DvH-gA-Vgv"/>
+                            <constraint firstItem="CnX-ue-AxE" firstAttribute="trailing" secondItem="OKO-pb-EgP" secondAttribute="trailing" id="Lcd-EM-S5b"/>
+                            <constraint firstItem="OKO-pb-EgP" firstAttribute="bottom" secondItem="CnX-ue-AxE" secondAttribute="bottom" constant="34" id="VOI-1w-pMY"/>
+                            <constraint firstItem="OKO-pb-EgP" firstAttribute="width" secondItem="l4f-rP-2cK" secondAttribute="width" id="aYm-UD-o2E"/>
+                            <constraint firstItem="OKO-pb-EgP" firstAttribute="leading" secondItem="CnX-ue-AxE" secondAttribute="leading" id="ff9-fr-eDb"/>
+                            <constraint firstItem="OKO-pb-EgP" firstAttribute="top" secondItem="CnX-ue-AxE" secondAttribute="top" id="svz-gX-acj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CnX-ue-AxE"/>
                     </view>
@@ -296,10 +358,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <size key="freeformSize" width="414" height="1100"/>
                     <connections>
                         <outlet property="autoWateringSwitch" destination="MBn-v4-IRQ" id="w0f-md-J7h"/>
+                        <outlet property="lightChart" destination="fQB-KY-BKh" id="A9o-4S-chX"/>
+                        <outlet property="moistureChart" destination="Cu0-xP-G3u" id="FCx-Id-lLn"/>
                         <outlet property="plantImageView" destination="zmP-Sp-phT" id="LhW-xO-myy"/>
                         <outlet property="plantNameLabel" destination="3C3-zK-9DS" id="QHi-tH-g6q"/>
+                        <outlet property="temperatureChart" destination="Gdo-oK-dfq" id="wGY-kb-uUF"/>
                         <outlet property="waterTankVolume" destination="FHP-GK-A2V" id="DCX-PF-Djy"/>
                     </connections>
                 </viewController>
@@ -737,6 +803,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="vtd-HV-l8g"/>
         <segue reference="UNE-fg-qZb"/>
         <segue reference="eFV-8m-iId"/>
         <segue reference="Ucu-LN-eZO"/>
