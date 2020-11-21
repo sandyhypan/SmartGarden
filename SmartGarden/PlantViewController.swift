@@ -39,15 +39,31 @@ class PlantViewController: UIViewController, ChartViewDelegate {
         //set the reference of firebase
         ref = Database.database().reference()
         retrieveAllRecords()
-        
-        
-        
-        
+  
     }
     
-    @IBAction func plantSetting(_ sender: Any) {
-        
+    @IBAction func switchChange(_ sender: UISwitch) {
+        var flag = "start"
+               if sender.isOn{
+                   flag = "start"
+               } else {
+                   flag = "stop"
+               }
+               
+               let UrlString = "http://\(plant!.ipAddress!):5000/setMoisture/\(flag)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+               let switchURL = URL(string: UrlString!)!
+               let dataTask = URLSession.shared.dataTask(with: switchURL) {(data, response, error) in
+                   
+                   if let error = error{
+                       print(error.localizedDescription)
+                       return
+                   }
+                   
+               }
+               dataTask.resume()
     }
+    
+    
     
     
     
@@ -83,11 +99,11 @@ class PlantViewController: UIViewController, ChartViewDelegate {
         recordRef?.observeSingleEvent(of: .value, with: { (snapshot) in
             //Obtain the sensor readings and populate them into arrays
             let lux = snapshot.childSnapshot(forPath: "Lux").value as? Double ?? 0
-            self.luxRecords.append(lux)
+            self.luxRecords.insert(lux, at: 0)
             let moisture = snapshot.childSnapshot(forPath: "Moisture").value as? Double ?? 0
-            self.moistureRecords.append(moisture)
+            self.moistureRecords.insert(moisture, at: 0)
             let temp = snapshot.childSnapshot(forPath: "Temperature").value as? Double ?? 0
-            self.soilTempRecords.append(temp)
+            self.soilTempRecords.insert(temp, at: 0)
             
             //Get only the most recent water tank level reading record
             if self.counter == 0 {
