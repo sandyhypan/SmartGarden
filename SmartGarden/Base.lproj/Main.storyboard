@@ -23,7 +23,7 @@
                                     <constraint firstAttribute="height" constant="40" id="nEP-a2-oyO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ryD-g8-23N">
                                 <rect key="frame" x="20" y="460" width="374" height="40"/>
@@ -49,7 +49,7 @@
                                     <constraint firstAttribute="height" constant="40" id="mY3-9b-Pad"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OI5-Su-VgA">
                                 <rect key="frame" x="269" y="505" width="54" height="30"/>
@@ -718,8 +718,14 @@
             <point key="canvasLocation" x="2956.521739130435" y="129.91071428571428"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="FHP-GK-A2V">
+            <size key="intrinsicContentSize" width="137" height="25"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="nJF-pO-qNc"/>
+        <segue reference="eOA-yA-Dki"/>
+        <segue reference="UNE-fg-qZb"/>
         <segue reference="Dzh-Ez-Tny"/>
         <segue reference="veR-aC-W5H"/>
     </inferredMetricsTieBreakers>

@@ -11,8 +11,6 @@ import FirebaseAuth
 
 class HomeTableViewController: UITableViewController, DatabaseListener {
     
-    
-    
     var currentPlants : [Plant] = []
     weak var databaseController: DatabaseProtocol?
     var listenerType: ListenerType = .plant
@@ -22,6 +20,10 @@ class HomeTableViewController: UITableViewController, DatabaseListener {
         super.viewDidLoad()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         databaseController = appDelegate.databaseController
+        
+        if databaseController?.getAllPlants().count == 0{
+            FirebaseController.getUserDevices()
+        }
         
     }
     
@@ -41,7 +43,10 @@ class HomeTableViewController: UITableViewController, DatabaseListener {
         do {
             // Clear firebase auth data
             try Auth.auth().signOut()
+            // Sync Firebase
+            
             // Clear core data
+            databaseController?.deleteAllPlants()
             
         } catch {
             DisplayMessages.displayAlert(title: "Logout failed", message: "An unknown error occured. Please try again later")

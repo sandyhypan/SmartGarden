@@ -26,10 +26,10 @@ protocol DatabaseListener: AnyObject {
 protocol DatabaseProtocol: AnyObject {
     func addListener(listener: DatabaseListener)
     func removeListener(listener: DatabaseListener)
+    func getAllPlants() -> [Plant]
     func deletePlant(plant: Plant)
+    func deleteAllPlants()
     func addPlant(plantName: String, ipAddress: String, macAddress: String, plantPhoto: Data?) -> Plant
     func cleanUp()
     func updatePlant(plant: Plant, plantName: String, plantImage: Data)
-    
-    
 }
