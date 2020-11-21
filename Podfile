@@ -12,5 +12,6 @@ target 'SmartGarden' do
   pod 'FirebaseFirestoreSwift'
   pod 'Cosmos'
   pod 'Firebase/Database'
+  pod 'Charts'
 
 end
