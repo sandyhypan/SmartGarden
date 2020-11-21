@@ -442,19 +442,36 @@
         <scene sceneID="99L-hr-1pP">
             <objects>
                 <tableViewController storyboardIdentifier="home" title="Home" id="ter-nn-7XB" customClass="HomeTableViewController" customModule="SmartGarden" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Sgx-AK-flI">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Sgx-AK-flI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="plantCell" textLabel="z1D-wY-3xV" rowHeight="86" style="IBUITableViewCellStyleDefault" id="UGf-2g-sVK">
-                                <rect key="frame" x="0.0" y="28" width="414" height="86"/>
+                                <rect key="frame" x="0.0" y="55.5" width="414" height="86"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UGf-2g-sVK" id="Qvt-pz-Wei">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="86"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z1D-wY-3xV">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="86"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="infoCell" textLabel="idn-pa-SeB" rowHeight="86" style="IBUITableViewCellStyleDefault" id="cJg-vC-0Lr">
+                                <rect key="frame" x="0.0" y="141.5" width="414" height="86"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cJg-vC-0Lr" id="r8r-xW-DPu">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="86"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="idn-pa-SeB">
                                             <rect key="frame" x="20" y="0.0" width="374" height="86"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -718,13 +735,7 @@
             <point key="canvasLocation" x="2956.521739130435" y="129.91071428571428"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="FHP-GK-A2V">
-            <size key="intrinsicContentSize" width="137" height="25"/>
-        </designable>
-    </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="eOA-yA-Dki"/>
         <segue reference="UNE-fg-qZb"/>
         <segue reference="Dzh-Ez-Tny"/>
         <segue reference="veR-aC-W5H"/>

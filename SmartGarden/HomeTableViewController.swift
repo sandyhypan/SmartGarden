@@ -11,6 +11,12 @@ import FirebaseAuth
 
 class HomeTableViewController: UITableViewController, DatabaseListener {
     
+    let SECTION_PLANT = 0
+    let SECTION_INTO = 1
+    let CELL_PLANT = "plantCell"
+    let CELL_INFO = "infoCell"
+    
+    
     var currentPlants : [Plant] = []
     weak var databaseController: DatabaseProtocol?
     var listenerType: ListenerType = .plant
@@ -72,23 +78,43 @@ class HomeTableViewController: UITableViewController, DatabaseListener {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentPlants.count
+        switch section {
+        case SECTION_PLANT:
+            return currentPlants.count
+        case SECTION_INTO:
+            return 1
+        default:
+            return 0
+        }
     }
 
     // populate cells
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let plantCell = tableView.dequeueReusableCell(withIdentifier: "plantCell", for: indexPath)
-        let plant = currentPlants[indexPath.row]
-        plantCell.textLabel?.text = plant.plantName
-        plantCell.imageView?.image = UIImage(data: plant.plantPhoto!)
+        if indexPath.section == SECTION_PLANT{
+            let plantCell = tableView.dequeueReusableCell(withIdentifier: "plantCell", for: indexPath)
+            let plant = currentPlants[indexPath.row]
+            plantCell.textLabel?.text = plant.plantName
+            plantCell.imageView?.image = UIImage(data: plant.plantPhoto!)
 
-        return plantCell
+            return plantCell
+        }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: CELL_INFO, for: indexPath)
+        
+        cell.textLabel?.textColor = .secondaryLabel
+        cell.selectionStyle = .none
+        if currentPlants.count > 0 {
+            cell.textLabel?.text = "\(currentPlants.count) plants saved."
+        } else {
+            cell.textLabel?.text = "Click + to add plant."
+        }
+        
+        return cell
     }
     
     // select cell

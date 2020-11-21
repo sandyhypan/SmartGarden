@@ -51,15 +51,24 @@ class CoreDataController: NSObject, NSFetchedResultsControllerDelegate, Database
     }
     
     func deleteAllPlants(){
-        guard let url = persistentContainer.persistentStoreDescriptions.first?.url else {
-            return
-        }
+        let fetchRequests = NSFetchRequest<NSFetchRequestResult>(entityName: "Plant")
+        
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequests)
         
         do{
-            try persistentContainer.persistentStoreCoordinator.destroyPersistentStore(at: url, ofType: NSSQLiteStoreType, options: nil)
+            try persistentContainer.viewContext.execute(batchDeleteRequest)
         } catch let error{
             fatalError("Failed to delete Core Data: \(error.localizedDescription)")
         }
+//        guard let url = persistentContainer.persistentStoreDescriptions.first?.url else {
+//            return
+//        }
+//
+//        do{
+//            try persistentContainer.persistentStoreCoordinator.destroyPersistentStore(at: url, ofType: NSSQLiteStoreType, options: nil)
+//        } catch let error{
+//            fatalError("Failed to delete Core Data: \(error.localizedDescription)")
+//        }
         
         
     }

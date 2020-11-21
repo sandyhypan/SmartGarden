@@ -24,8 +24,9 @@ class FirebaseController: NSObject {
                 let macAddress = snapshot.key
                 snapshot = snapshot.childSnapshot(forPath: "plant_info")
                 let plantName = snapshot.childSnapshot(forPath: "plant_name").value as! String
+                let ip = snapshot.childSnapshot(forPath: "ip").value as! String
                 
-                let _ = databaseController?.addPlant(plantName: plantName, ipAddress: "192.168.1.2", macAddress: macAddress, plantPhoto: UIImage(named: "default_plant")?.pngData())
+                let _ = databaseController?.addPlant(plantName: plantName, ipAddress: ip, macAddress: macAddress, plantPhoto: UIImage(named: "default_plant")?.pngData())
             }
             
     
