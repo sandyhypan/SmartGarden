@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class AddPlantViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var plantNameTextfield: UITextField!
@@ -18,13 +19,18 @@ class AddPlantViewController: UIViewController, UIImagePickerControllerDelegate,
     var deviceUUID: String?
     var ipAddress: String?
     var uid: String?
+    var ref: DatabaseReference?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         plantNameTextfield.delegate = self
         waterTankVolumeTextField.delegate = self
         moistureLevelTextField.delegate = self
-        
+        //userDefaults
+        let userDefaults = UserDefaults.standard
+        uid = userDefaults.string(forKey: "uid")!
+        //DB reference
+        ref = Database.database().reference()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         databaseController = appDelegate.databaseController
         
@@ -74,6 +80,10 @@ class AddPlantViewController: UIViewController, UIImagePickerControllerDelegate,
             //Add plant to core data
             let _ = databaseController?.addPlant(plantName: plantName, ipAddress: ipAddress!, macAddress: deviceUUID!, plantPhoto: plantImageData)
             
+            //Save to firebase
+            ref?.child("\(uid!)/\(deviceUUID!)/plant_info/plant_name").setValue(plantName)
+
+            
             //Post user preferences to Pi
             //moisture level http call
             let moistureUrlString = "http://\(ipAddress!):5000/setMoisture/\(moistureLevelTextField.text!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
@@ -98,6 +108,7 @@ class AddPlantViewController: UIViewController, UIImagePickerControllerDelegate,
                 }
             }
             dataTask2.resume()
+            
             self.performSegue(withIdentifier: "savePlantSegue", sender: self)
             
         } else{

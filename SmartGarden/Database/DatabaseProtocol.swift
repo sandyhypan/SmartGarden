@@ -29,6 +29,7 @@ protocol DatabaseProtocol: AnyObject {
     func deletePlant(plant: Plant)
     func addPlant(plantName: String, ipAddress: String, macAddress: String, plantPhoto: Data?) -> Plant
     func cleanUp()
+    func updatePlant(plant: Plant, plantName: String, plantImage: Data)
     
     
 }

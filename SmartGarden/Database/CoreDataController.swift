@@ -69,6 +69,13 @@ class CoreDataController: NSObject, NSFetchedResultsControllerDelegate, Database
         listeners.removeDelegate(listener)
     }
     
+    func updatePlant(plant: Plant, plantName: String, plantImage: Data) {
+        plant.setValue(plantName, forKey: "plantName")
+        plant.setValue(plantImage, forKey: "plantPhoto")
+    }
+     
+    
+    
     //MARK: - fetch results controller protocol function
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         if controller == allPlantsFetchedResultsController{
