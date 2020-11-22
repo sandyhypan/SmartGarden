@@ -223,7 +223,7 @@
                                                     <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="drop_empty"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MBn-v4-IRQ">
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MBn-v4-IRQ">
                                                 <rect key="frame" x="295" y="206" width="51" height="31"/>
                                                 <connections>
                                                     <action selector="switchChange:" destination="mNg-7c-Hbc" eventType="valueChanged" id="m9M-Bf-LgN"/>
@@ -368,6 +368,7 @@
                         <outlet property="plantImageView" destination="zmP-Sp-phT" id="LhW-xO-myy"/>
                         <outlet property="plantNameLabel" destination="3C3-zK-9DS" id="QHi-tH-g6q"/>
                         <outlet property="temperatureChart" destination="Gdo-oK-dfq" id="wGY-kb-uUF"/>
+                        <outlet property="waterSwitch" destination="MBn-v4-IRQ" id="fL0-x2-vba"/>
                         <outlet property="waterTankVolume" destination="FHP-GK-A2V" id="DCX-PF-Djy"/>
                     </connections>
                 </viewController>
@@ -805,6 +806,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="vtd-HV-l8g"/>
         <segue reference="UNE-fg-qZb"/>
         <segue reference="eFV-8m-iId"/>
         <segue reference="Ucu-LN-eZO"/>

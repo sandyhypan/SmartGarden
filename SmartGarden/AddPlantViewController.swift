@@ -83,6 +83,7 @@ class AddPlantViewController: UIViewController, UIImagePickerControllerDelegate,
             //Save to firebase
             ref?.child("\(uid!)/\(deviceUUID!)/plant_info/plant_name").setValue(plantName)
             ref?.child("\(uid!)/\(deviceUUID!)/plant_info/ip").setValue(ipAddress)
+            ref?.child("\(uid!)/\(deviceUUID!)/auto_water").setValue(false)
 
             
             //Post user preferences to Pi

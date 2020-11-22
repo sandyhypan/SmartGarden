@@ -43,6 +43,7 @@ class SignUpViewController: UIViewController {
     }
     
     // MARK: - Dismiss keyboard in response to keyboard notification
+    // // ref: https://www.youtube.com/watch?v=kD6vw0hp5WU&vl=en&ab_channel=MarkMoeykens
     
     @objc func dismissKeyboard(sender: AnyObject){
         emailTextField.resignFirstResponder()
