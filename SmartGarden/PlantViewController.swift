@@ -83,72 +83,93 @@ class PlantViewController: UIViewController, ChartViewDelegate {
     //Reference: https://stackoverflow.com/questions/39049188/how-to-add-strings-on-x-axis-in-ios-charts
     
     func setLineChart(dataEntryX forX:[String], dataEntryY forY: [Double], lineChart: LineChartView){
-            var entries:[ChartDataEntry] = []
-            var axisMin: Double
-            var axisMax: Double
-            axisMin = Double(round(10 * forY.min()!)/10)  - 0.1
-            axisMax = Double(round(10 * forY.max()!)/10)  + 0.1
-            for i in 0..<forX.count{
-                let dataEntry = ChartDataEntry(x: Double(i), y: Double(forY[i]), data: dateRecords as AnyObject?)
-                entries.append(dataEntry)
-            }
-            
-            let chartDataSet = LineChartDataSet(entries: entries, label: "Moisture Level")
-            chartDataSet.mode = .cubicBezier
-            chartDataSet.lineWidth = 2
-            chartDataSet.circleRadius = 0.5
-            let green = UIColor(red:133/255, green:224/255,blue:133/255,alpha:1)
-            let lightGreen = UIColor(red:133/255, green:224/255,blue:133/255,alpha:0.5)
-            chartDataSet.setColor(green, alpha: 1)
-            chartDataSet.circleColors = [green]
-            let gradientColors = [green.cgColor, lightGreen.cgColor] as CFArray
-            let colorLocation: [CGFloat] = [0.0, 1.0]
-            let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(),colors: gradientColors, locations:colorLocation)
-            chartDataSet.fill = Fill.fillWithLinearGradient(gradient!, angle: 90)
-            chartDataSet.drawFilledEnabled = true
-            
-            let chartData = LineChartData(dataSet: chartDataSet)
-            lineChart.data = chartData
-            lineChart.drawBordersEnabled = true
-            lineChart.borderColor = UIColor(red:220/255, green:220/255,blue:220/255,alpha:1)
-            lineChart.xAxis.drawGridLinesEnabled = false
-            lineChart.xAxis.valueFormatter = axisFormatDelegate
-            lineChart.extraTopOffset = 3
-            lineChart.extraBottomOffset = 10
-            lineChart.xAxis.avoidFirstLastClippingEnabled = true
-    //        lineChart.xAxis.labelRotationAngle = -45.0
-            lineChart.xAxis.wordWrapEnabled = true
-            lineChart.xAxis.setLabelCount(totalRecords, force: true)
-            lineChart.xAxis.forceLabelsEnabled = true
-            lineChart.backgroundColor = UIColor(red:236/255, green:236/255,blue:236/255,alpha:1)
-            lineChart.xAxis.drawAxisLineEnabled = false
-            lineChart.xAxis.drawLimitLinesBehindDataEnabled = false
-            lineChart.xAxis.gridColor = UIColor(red:220/255, green:220/255,blue:220/255,alpha:1)
-            lineChart.xAxis.gridLineWidth = 0.5
-            lineChart.xAxis.drawGridLinesEnabled = true
-    //        lineChart.xAxis.drawLabelsEnabled = false
-            lineChart.leftAxis.removeAllLimitLines()
-            lineChart.leftAxis.drawZeroLineEnabled = false
-            lineChart.leftAxis.zeroLineWidth = 0
-            lineChart.leftAxis.drawTopYLabelEntryEnabled = false
-            lineChart.leftAxis.drawAxisLineEnabled = false
-            lineChart.leftAxis.drawGridLinesEnabled = false
-    //        lineChart.leftAxis.drawLabelsEnabled = false
-            lineChart.leftAxis.drawLimitLinesBehindDataEnabled = false
-            lineChart.leftAxis.axisMinimum = axisMin
-            lineChart.leftAxis.axisMaximum = axisMax
-            lineChart.rightAxis.removeAllLimitLines()
-            lineChart.rightAxis.drawZeroLineEnabled = false
-            lineChart.leftAxis.zeroLineWidth = 0
-            lineChart.rightAxis.drawTopYLabelEntryEnabled = false
-            lineChart.rightAxis.drawAxisLineEnabled = false
-            lineChart.rightAxis.drawGridLinesEnabled = false
-            lineChart.rightAxis.drawLabelsEnabled = false
-            lineChart.rightAxis.drawLimitLinesBehindDataEnabled = false
-            lineChart.legend.enabled = false
-            lineChart.xAxis.labelPosition = XAxis.LabelPosition.bottom
-            
+        var entries:[ChartDataEntry] = []
+        let axisMin: Double = forY.min()!
+        let axisMax: Double = forY.max()!
+        
+        for i in 0..<forX.count{
+            let dataEntry = ChartDataEntry(x: Double(i), y: Double(forY[i]), data: dateRecords as AnyObject?)
+            entries.append(dataEntry)
         }
+        
+        let green = UIColor(red:0/255, green:255/255,blue:170/255,alpha:1)
+        let grey = UIColor(displayP3Red: 242/255, green: 242/255, blue: 242/255, alpha: 0.5)
+        let darkGrey = UIColor(displayP3Red: 191/255, green: 191/255, blue: 191/255, alpha: 1)
+        let white = UIColor(displayP3Red: 255/255, green: 255/255, blue: 255/255, alpha: 0.7)
+        //Graph line attributes manipulation
+        let chartDataSet = LineChartDataSet(entries: entries, label: "Moisture Level")
+        chartDataSet.mode = .cubicBezier
+        chartDataSet.highlightColor = darkGrey
+        chartDataSet.lineWidth = 2
+        chartDataSet.circleRadius = 0.5
+        chartDataSet.setColor(green, alpha: 1)
+        chartDataSet.circleColors = [green]
+        chartDataSet.fillAlpha = 1
+        chartDataSet.fill = Fill.init(CGColor: green.cgColor)
+        chartDataSet.drawFilledEnabled = true
+        
+        //Fill the line with gradient colors
+        let lightGreen = UIColor(red:133/255, green:224/255,blue:133/255,alpha:0.5)
+        //        let gradientColors = [green.cgColor, lightGreen.cgColor] as CFArray
+        //        let colorLocation: [CGFloat] = [0.0, 1.0]
+        //        let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(),colors: gradientColors, locations:colorLocation)
+        //        chartDataSet.fill = Fill.fillWithLinearGradient(gradient!, angle: 270)
+        
+        //Graph attributes manipulation
+        let chartData = LineChartData(dataSet: chartDataSet)
+        lineChart.data = chartData
+        lineChart.drawBordersEnabled = true
+        lineChart.borderColor = lightGreen
+        lineChart.extraTopOffset = 3
+        lineChart.extraBottomOffset = 10
+        
+        let xAxis = lineChart.xAxis
+        xAxis.drawGridLinesEnabled = false
+        xAxis.valueFormatter = axisFormatDelegate
+        
+        //        xAxis.avoidFirstLastClippingEnabled = true
+        //        xAxis.labelRotationAngle = -45.0
+        xAxis.wordWrapEnabled = true
+        xAxis.setLabelCount(totalRecords, force: true)
+        xAxis.forceLabelsEnabled = true
+        xAxis.avoidFirstLastClippingEnabled = true
+        xAxis.drawAxisLineEnabled = false
+        xAxis.drawLimitLinesBehindDataEnabled = false
+        xAxis.labelPosition = XAxis.LabelPosition.bottom
+        //        lineChart.backgroundColor = UIColor(red:236/255, green:236/255,blue:236/255,alpha:0.5)
+        lineChart.backgroundColor = grey
+        //        lineChart.xAxis.gridColor = UIColor(red:220/255, green:220/255,blue:220/255,alpha:1)
+        xAxis.gridColor = white
+        xAxis.gridLineWidth = 0.7
+        xAxis.drawGridLinesEnabled = true
+        //        xAxis.drawLabelsEnabled = false
+        
+        let leftAxis = lineChart.leftAxis
+        leftAxis.removeAllLimitLines()
+        leftAxis.drawZeroLineEnabled = false
+        leftAxis.zeroLineWidth = 0
+        leftAxis.drawTopYLabelEntryEnabled = false
+        leftAxis.drawAxisLineEnabled = false
+        leftAxis.drawGridLinesEnabled = false
+        //       leftAxis.drawLabelsEnabled = false
+        leftAxis.drawLimitLinesBehindDataEnabled = false
+        leftAxis.axisMinimum = axisMin
+        leftAxis.zeroLineWidth = 0
+        leftAxis.axisMaximum = axisMax
+        
+        let rightAxis = lineChart.rightAxis
+        rightAxis.removeAllLimitLines()
+        rightAxis.drawZeroLineEnabled = false
+        rightAxis.drawTopYLabelEntryEnabled = false
+        rightAxis.drawAxisLineEnabled = false
+        rightAxis.drawGridLinesEnabled = false
+        rightAxis.drawLabelsEnabled = false
+        rightAxis.drawLimitLinesBehindDataEnabled = false
+        
+        lineChart.legend.enabled = false
+        lineChart.animate(xAxisDuration: 0.5)
+        
+    }
     
     
     //MARK: - Firebase Data Retrieval
@@ -160,6 +181,11 @@ class PlantViewController: UIViewController, ChartViewDelegate {
         let dataRef = deviceRef?.child("data")
         //Order the records in ascending order
         dataRef?.queryOrdered(byChild: "Timestamp") .observe(.value, with: { (snapshot) in
+            self.luxRecords = []
+           self.dateRecords = []
+           self.moistureRecords = []
+           self.soilTempRecords = []
+            
             let childRecords = snapshot.children.allObjects as! [DataSnapshot]
             self.totalRecords = childRecords.count
             self.counter = 1
@@ -184,10 +210,15 @@ class PlantViewController: UIViewController, ChartViewDelegate {
         recordRef?.observeSingleEvent(of: .value, with: { (snapshot) in
             //Obtain the sensor readings and populate them into arrays
             let lux = snapshot.childSnapshot(forPath: "Lux").value as? Double ?? 0
+//            let formattedLux = self.doubleFormatter(value: lux)
             self.luxRecords.insert(lux, at: 0)
+            
             let moisture = snapshot.childSnapshot(forPath: "Moisture").value as? Double ?? 0
+//            let formattedMoisture = self.doubleFormatter(value: moisture)
             self.moistureRecords.insert(moisture, at: 0)
+            
             let temp = snapshot.childSnapshot(forPath: "Temperature").value as? Double ?? 0
+//            let formattedTemp = self.doubleFormatter(value: temp)
             self.soilTempRecords.insert(temp, at: 0)
             
             let timestamp = snapshot.childSnapshot(forPath: "Timestamp").value as? Double ?? 0
@@ -250,6 +281,15 @@ class PlantViewController: UIViewController, ChartViewDelegate {
         })
     }
     
+//    func doubleFormatter(value: Double)-> Double{
+//        let string = String(format: "%.1f", value)
+//        if let newVal = Double(string){
+//
+//            return newVal
+//        }
+//        return value
+//    }
+    
     func timestampCorrector(timeStamp: Double) -> String{
         let str = String(timeStamp)
         let start = str.startIndex
@@ -289,3 +329,4 @@ extension PlantViewController: IAxisValueFormatter{
         return dateRecords[Int(value)]
     }
 }
+
