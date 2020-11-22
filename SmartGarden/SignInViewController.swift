@@ -27,6 +27,7 @@ class SignInViewController: UIViewController {
         passwordTextField.setUpRightButton()
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -166,6 +167,8 @@ extension UITextField{
         toggleImage(rightButton)
         rightButton.frame = CGRect(x: CGFloat(self.frame.size.width - 25), y: CGFloat(5), width: CGFloat(25), height: CGFloat(25))
         rightButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
+        rightButton.setImage(UIImage(named: "invisible"), for: .normal)
+        isSecureTextEntry = true
         rightButton.addTarget(self, action: #selector(self.toggleVisibility), for: .touchUpInside)
         self.rightView = rightButton
         self.rightViewMode = .always
