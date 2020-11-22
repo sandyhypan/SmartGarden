@@ -49,7 +49,6 @@ class HomeTableViewController: UITableViewController, DatabaseListener {
         do {
             // Clear firebase auth data
             try Auth.auth().signOut()
-            // Sync Firebase
             
             // Clear core data
             databaseController?.deleteAllPlants()

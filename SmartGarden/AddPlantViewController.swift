@@ -20,6 +20,7 @@ class AddPlantViewController: UIViewController, UIImagePickerControllerDelegate,
     var ipAddress: String?
     var uid: String?
     var ref: DatabaseReference?
+    var dismissKeyboardTapGesture: UIGestureRecognizer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,73 @@ class AddPlantViewController: UIViewController, UIImagePickerControllerDelegate,
         //hints
         waterTankVolumeTextField.placeholder = "In millilitre (mL)"
         moistureLevelTextField.placeholder = "Between 0 to 100"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // Get notification for keyboard appearing and closing
+        NotificationCenter.default.addObserver(self, selector: #selector(SignInViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SignInViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        // Remove the notification observer
+        NotificationCenter.default.removeObserver(self)
+        dismissKeyboard(sender: self)
+        
+        super.viewWillDisappear(animated)
+    }
+    
+    // MARK: - Dismiss keyboard and adjust View in response to keyboard notification
+    // ref: https://www.youtube.com/watch?v=kD6vw0hp5WU&vl=en&ab_channel=MarkMoeykens
+    
+    @objc func dismissKeyboard(sender: AnyObject){
+        plantNameTextfield.resignFirstResponder()
+        waterTankVolumeTextField.resignFirstResponder()
+        moistureLevelTextField.resignFirstResponder()
+    }
+    
+    // Move the screen upward when the keyboard pop up
+    @objc func keyboardWillShow(notification: NSNotification){
+        // Register a gesture recognizer that will dismiss the keyboard if the user click on somewhere else
+        if dismissKeyboardTapGesture == nil {
+            dismissKeyboardTapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+            self.view.addGestureRecognizer(dismissKeyboardTapGesture!)
+        }
+        
+        // Get the userinfo dictionary that consist of the information of the keyboard
+        guard let userInfo = notification.userInfo else { return }
+        
+        // Get the size of the keyboard
+        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardFrame = keyboardSize.cgRectValue
+        
+        // Minus view height with the keyboard height to move everything upwards
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y -= (keyboardFrame.height - 60)
+        }
+        
+    }
+    
+    
+    // Move the screen downward when the keyboard dismiss
+    @objc func keyboardWillHide(notification: NSNotification){
+        // Deregister the gesture recogniser when it is not needed
+        if dismissKeyboardTapGesture != nil {
+            self.view.removeGestureRecognizer(dismissKeyboardTapGesture!)
+            dismissKeyboardTapGesture = nil
+        }
+        
+        // Get the userinfo dictionary that consist of the information of the keyboard
+        guard let userInfo = notification.userInfo else { return }
+        
+        // Get the size of the keyboard
+        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardFrame = keyboardSize.cgRectValue
+        
+        // Add view height with the keyboard height to move everything upwards
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y += (keyboardFrame.height - 60)
+        }
     }
     
     //MARK: - Image picker
@@ -71,14 +139,14 @@ class AddPlantViewController: UIViewController, UIImagePickerControllerDelegate,
     
     //MARK: - save plant
     @IBAction func savePlant(_ sender: Any) {
-        
+        dismissKeyboard(sender: self)
         if plantNameTextfield.text != "" && waterTankVolumeTextField.text != "" && moistureLevelTextField.text != "" &&  plantImage != nil{
             let plantName = plantNameTextfield.text!
             
             
             if Double(waterTankVolumeTextField.text!) != nil && Double(moistureLevelTextField.text!) != nil{
                 
-                if Double(moistureLevelTextField.text!)! > 0 && Double(moistureLevelTextField.text!)! < 100{
+                if Double(moistureLevelTextField.text!)! >= 0 && Double(moistureLevelTextField.text!)! <= 100{
                     //image
                     if let img = plantImage.image?.pngData{
                         plantImageData = img()

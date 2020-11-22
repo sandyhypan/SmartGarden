@@ -54,7 +54,6 @@ class PlantViewController: UIViewController, ChartViewDelegate {
         ref = Database.database().reference()
         retrieveAllRecords()
         
-        // Sync the auto_water switch with firebase
         let ref = self.ref?.child(userID).child((plant?.macAddress)!).child("auto_water")
         ref?.observeSingleEvent(of: .value, with: { (snapshot) in
             let isOn = snapshot.value as! Bool
@@ -258,7 +257,7 @@ class PlantViewController: UIViewController, ChartViewDelegate {
                 if containerVolume <= 0{
                     self.waterTankVolume.rating = 0
                 } else {
-                    self.waterTankVolume.rating = waterVol/containerVolume
+                    self.waterTankVolume.rating = (waterVol/containerVolume) * 5
                 }
                 
             }
@@ -342,7 +341,7 @@ class PlantViewController: UIViewController, ChartViewDelegate {
 
 extension PlantViewController: IAxisValueFormatter{
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-        return dateRecords[Int(value)]
+        return dateRecords[Int(value) % dateRecords.count]
     }
 }
 
