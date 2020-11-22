@@ -33,11 +33,9 @@ class AddPlantViewController: UIViewController, UIImagePickerControllerDelegate,
         ref = Database.database().reference()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         databaseController = appDelegate.databaseController
-        
-        //        guard ipAddress != nil, deviceUUID != nil else {
-        //            print("ipAddress or deviceUUID is missing!")
-        //            return
-        //        }
+        //hints
+        waterTankVolumeTextField.placeholder = "In millilitre (mL)"
+        moistureLevelTextField.placeholder = "Between 0 to 100"
     }
     
     // MARK: - Dismiss keyboard and adjust View in response to keyboard notification
@@ -109,12 +107,12 @@ class AddPlantViewController: UIViewController, UIImagePickerControllerDelegate,
         
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage{
             plantImage.image = image
-            if let img = plantImage.image?.pngData{
-                plantImageData = img()
-            }
-            if let img = plantImage.image?.jpegData{
-                plantImageData = img(0.8)
-            }
+            //            if let img = plantImage.image?.pngData{
+            //                plantImageData = img()
+            //            }
+            //            if let img = plantImage.image?.jpegData{
+            //                plantImageData = img(0.8)
+            //            }
         }
         picker.dismiss(animated: true, completion: nil)
     }
@@ -129,59 +127,78 @@ class AddPlantViewController: UIViewController, UIImagePickerControllerDelegate,
         if plantNameTextfield.text != "" && waterTankVolumeTextField.text != "" && moistureLevelTextField.text != "" &&  plantImage != nil{
             let plantName = plantNameTextfield.text!
             
-            //Add plant to core data
-            let _ = databaseController?.addPlant(plantName: plantName, ipAddress: ipAddress!, macAddress: deviceUUID!, plantPhoto: plantImageData)
             
-            //Save to firebase
-            ref?.child("\(uid!)/\(deviceUUID!)/plant_info/plant_name").setValue(plantName)
-            ref?.child("\(uid!)/\(deviceUUID!)/plant_info/ip").setValue(ipAddress)
-            ref?.child("\(uid!)/\(deviceUUID!)/auto_water").setValue(false)
+            if Double(waterTankVolumeTextField.text!) != nil && Double(moistureLevelTextField.text!) != nil{
+                
+                if Double(moistureLevelTextField.text!)! > 0 && Double(moistureLevelTextField.text!)! < 100{
+                    //image
+                    if let img = plantImage.image?.pngData{
+                        plantImageData = img()
+                    }
+                    if let img = plantImage.image?.jpegData{
+                        plantImageData = img(0.8)
+                    }
+                    
+                    //Add plant to core data
+                    let _ = databaseController?.addPlant(plantName: plantName, ipAddress: ipAddress!, macAddress: deviceUUID!, plantPhoto: plantImageData)
+                    
+                    //Save to firebase
+                    ref?.child("\(uid!)/\(deviceUUID!)/plant_info/plant_name").setValue(plantName)
+                    ref?.child("\(uid!)/\(deviceUUID!)/plant_info/ip").setValue(ipAddress)
+                    ref?.child("\(uid!)/\(deviceUUID!)/auto_water").setValue(false)
+                    
+                    
+                    //Post user preferences to Pi
+                    //moisture level http call
+                    let moistureUrlString = "http://\(ipAddress!):5000/setMoisture/\(moistureLevelTextField.text!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+                    let moistureURL = URL(string: moistureUrlString!)
+                    let dataTask = URLSession.shared.dataTask(with: moistureURL!) {(data, response, error) in
 
-            
-            //Post user preferences to Pi
-            //moisture level http call
-            let moistureUrlString = "http://\(ipAddress!):5000/setMoisture/\(moistureLevelTextField.text!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-            let moistureURL = URL(string: moistureUrlString!)
-            let dataTask = URLSession.shared.dataTask(with: moistureURL!) {(data, response, error) in
-                
-                if let error = error{
-                    print(error.localizedDescription)
-                    return
+                        if let error = error{
+                            print(error.localizedDescription)
+                            return
+                        }
+
+                    }
+
+                    dataTask.resume()
+                    
+                    //water tank volume http call
+                    let containerUrlString = "http://\(ipAddress!):5000/setContainerVolumn/\(waterTankVolumeTextField.text!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+                    let containerURL = URL(string: containerUrlString!)
+                    let dataTask2 = URLSession.shared.dataTask(with: containerURL!) {(data, response, error) in
+                        if let error = error{
+                            print(error.localizedDescription)
+                            return
+                        }
+                    }
+                    dataTask2.resume()
+
+                    self.performSegue(withIdentifier: "savePlantSegue", sender: self)
+                    
+                } else {
+                    DisplayMessages.displayAlert(title: "Error", message: "Moisture level should be between 0 to 100")
                 }
-                
+        } else {
+            DisplayMessages.displayAlert(title: "Error", message: "Please input correct format for water tank volume or moisture level")
             }
-            dataTask.resume()
-            
-            //water tank volume http call
-            let containerUrlString = "http://\(ipAddress!):5000/setContainerVolumn/\(waterTankVolumeTextField.text!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-            let containerURL = URL(string: containerUrlString!)
-            let dataTask2 = URLSession.shared.dataTask(with: containerURL!) {(data, response, error) in
-                if let error = error{
-                    print(error.localizedDescription)
-                    return
-                }
-            }
-            dataTask2.resume()
-            
-            self.performSegue(withIdentifier: "savePlantSegue", sender: self)
-            
-        } else{
-            DisplayMessages.displayAlert(title: "Error", message: "All fields must be filled.")
-        }
+        
+    } else{
+    DisplayMessages.displayAlert(title: "Error", message: "All fields must be filled")
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
 
+/*
+ // MARK: - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+ // Get the new view controller using segue.destination.
+ // Pass the selected object to the new view controller.
+ }
+ */
+
+}
 //MARK: -Text Field Delegates
 extension AddPlantViewController    : UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -194,3 +211,6 @@ extension AddPlantViewController    : UITextFieldDelegate{
         return true
     }
 }
+
+
+
