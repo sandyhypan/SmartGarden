@@ -134,16 +134,18 @@ class PlantViewController: UIViewController, ChartViewDelegate {
         lineChart.extraTopOffset = 3
         lineChart.extraBottomOffset = 10
         lineChart.extraLeftOffset =  3
+        lineChart.setVisibleXRangeMaximum(5)
+        lineChart.moveViewToX(Double(dateRecords.count))
         
         let xAxis = lineChart.xAxis
         xAxis.drawGridLinesEnabled = false
         xAxis.valueFormatter = axisFormatDelegate
         xAxis.labelTextColor = labelGrey
         //        xAxis.avoidFirstLastClippingEnabled = true
-        //        xAxis.labelRotationAngle = -45.0
-        xAxis.wordWrapEnabled = true
-        xAxis.setLabelCount(totalRecords, force: true)
-        xAxis.forceLabelsEnabled = true
+//        xAxis.labelRotationAngle = -90.0
+        xAxis.granularityEnabled = true
+        xAxis.setLabelCount(5, force: true)
+        xAxis.forceLabelsEnabled = false
         xAxis.avoidFirstLastClippingEnabled = true
         xAxis.drawAxisLineEnabled = false
         xAxis.drawLimitLinesBehindDataEnabled = false
@@ -181,7 +183,7 @@ class PlantViewController: UIViewController, ChartViewDelegate {
         rightAxis.drawLimitLinesBehindDataEnabled = false
         
         lineChart.legend.enabled = false
-        lineChart.animate(xAxisDuration: 0.5)
+        lineChart.animate(xAxisDuration: 1.5)
         
     }
     
@@ -224,19 +226,16 @@ class PlantViewController: UIViewController, ChartViewDelegate {
         recordRef?.observeSingleEvent(of: .value, with: { (snapshot) in
             //Obtain the sensor readings and populate them into arrays
             let lux = snapshot.childSnapshot(forPath: "Lux").value as? Double ?? 0
-//            let formattedLux = self.doubleFormatter(value: lux)
             self.luxRecords.insert(lux, at: 0)
             
             let moisture = snapshot.childSnapshot(forPath: "Moisture").value as? Double ?? 0
-//            let formattedMoisture = self.doubleFormatter(value: moisture)
             self.moistureRecords.insert(moisture, at: 0)
             
             let temp = snapshot.childSnapshot(forPath: "Temperature").value as? Double ?? 0
-//            let formattedTemp = self.doubleFormatter(value: temp)
             self.soilTempRecords.insert(temp, at: 0)
             
             let timestamp = snapshot.childSnapshot(forPath: "Timestamp").value as? Double ?? 0
-            var localDate = self.timestampCorrector(timeStamp: timestamp)
+            let localDate = self.timestampCorrector(timeStamp: timestamp)
             let wrapTextDate = localDate.replacingOccurrences(of: " ", with: "\n")
             self.dateRecords.insert(wrapTextDate, at: 0)
             
