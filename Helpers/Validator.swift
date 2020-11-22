@@ -5,6 +5,7 @@
 //  Created by Adrian Yip on 15/11/20.
 //  Copyright © 2020 Sandy Pan. All rights reserved.
 //
+//  ref: https://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift
 
 import Foundation
 

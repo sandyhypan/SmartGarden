@@ -5,6 +5,7 @@
 //  Created by Adrian Yip on 21/11/20.
 //  Copyright © 2020 Sandy Pan. All rights reserved.
 //
+// ref: https://medium.com/better-programming/lets-build-a-circular-loading-indicator-in-swift-5-b06fcdf1260d
 
 import UIKit
 

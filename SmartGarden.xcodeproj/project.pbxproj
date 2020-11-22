@@ -13,13 +13,11 @@
 		3A2CAE4A2568075C00F5F71A /* RotationAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CAE492568075C00F5F71A /* RotationAnimation.swift */; };
 		3A2CAE4D256809BE00F5F71A /* StrokeColorAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CAE4C256809BE00F5F71A /* StrokeColorAnimation.swift */; };
 		3A2CAE502568A38A00F5F71A /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CAE4F2568A38A00F5F71A /* FirebaseController.swift */; };
-		3A2CAE532568AA5E00F5F71A /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CAE522568AA5E00F5F71A /* Device.swift */; };
 		3AC006C92566BDF00061C511 /* Authenticate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC006C82566BDF00061C511 /* Authenticate.swift */; };
 		3AD4740B2560F6FC00ED9271 /* DisplayMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD4740A2560F6FC00ED9271 /* DisplayMessages.swift */; };
 		3AD474262560F8D000ED9271 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD474252560F8D000ED9271 /* Validator.swift */; };
 		B984DE092550D9E700B69DE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B984DE082550D9E700B69DE4 /* AppDelegate.swift */; };
 		B984DE0B2550D9E700B69DE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B984DE0A2550D9E700B69DE4 /* SceneDelegate.swift */; };
-		B984DE0D2550D9E700B69DE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B984DE0C2550D9E700B69DE4 /* ViewController.swift */; };
 		B984DE102550D9E700B69DE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B984DE0E2550D9E700B69DE4 /* Main.storyboard */; };
 		B984DE122550D9EC00B69DE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B984DE112550D9EC00B69DE4 /* Assets.xcassets */; };
 		B984DE152550D9EC00B69DE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B984DE132550D9EC00B69DE4 /* LaunchScreen.storyboard */; };
@@ -52,14 +50,12 @@
 		3A2CAE492568075C00F5F71A /* RotationAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationAnimation.swift; sourceTree = "<group>"; };
 		3A2CAE4C256809BE00F5F71A /* StrokeColorAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeColorAnimation.swift; sourceTree = "<group>"; };
 		3A2CAE4F2568A38A00F5F71A /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
-		3A2CAE522568AA5E00F5F71A /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		3AC006C82566BDF00061C511 /* Authenticate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticate.swift; sourceTree = "<group>"; };
 		3AD4740A2560F6FC00ED9271 /* DisplayMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMessages.swift; sourceTree = "<group>"; };
 		3AD474252560F8D000ED9271 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		B984DE052550D9E700B69DE4 /* SmartGarden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartGarden.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B984DE082550D9E700B69DE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B984DE0A2550D9E700B69DE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B984DE0C2550D9E700B69DE4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B984DE0F2550D9E700B69DE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B984DE112550D9EC00B69DE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B984DE142550D9EC00B69DE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -152,7 +148,6 @@
 				B984DE35255E2C4600B69DE4 /* DataModel */,
 				B984DE082550D9E700B69DE4 /* AppDelegate.swift */,
 				B984DE0A2550D9E700B69DE4 /* SceneDelegate.swift */,
-				B984DE0C2550D9E700B69DE4 /* ViewController.swift */,
 				B984DE0E2550D9E700B69DE4 /* Main.storyboard */,
 				B984DE112550D9EC00B69DE4 /* Assets.xcassets */,
 				B984DE132550D9EC00B69DE4 /* LaunchScreen.storyboard */,
@@ -176,7 +171,6 @@
 				B984DE4C255E54A400B69DE4 /* Plant+CoreDataClass.swift */,
 				B984DE4D255E54A400B69DE4 /* Plant+CoreDataProperties.swift */,
 				B984DE46255E51B200B69DE4 /* SensorData.swift */,
-				3A2CAE522568AA5E00F5F71A /* Device.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -325,7 +319,6 @@
 				3A2CAE442567FE7500F5F71A /* ProgressShapeLayer.swift in Sources */,
 				B984DE2A2550E8F100B69DE4 /* PlantSettingViewController.swift in Sources */,
 				B984DE4F255E54A400B69DE4 /* Plant+CoreDataProperties.swift in Sources */,
-				B984DE0D2550D9E700B69DE4 /* ViewController.swift in Sources */,
 				3A2CAE502568A38A00F5F71A /* FirebaseController.swift in Sources */,
 				3A2CAE4A2568075C00F5F71A /* RotationAnimation.swift in Sources */,
 				B984DE51255E568E00B69DE4 /* CoreDataController.swift in Sources */,
@@ -336,7 +329,6 @@
 				B984DE47255E51B200B69DE4 /* SensorData.swift in Sources */,
 				B984DE45255E50A800B69DE4 /* PlantModel.xcdatamodeld in Sources */,
 				3AD474262560F8D000ED9271 /* Validator.swift in Sources */,
-				3A2CAE532568AA5E00F5F71A /* Device.swift in Sources */,
 				B984DE3E255E33AA00B69DE4 /* MulticastDelegate.swift in Sources */,
 				B984DE262550E87C00B69DE4 /* AddPlantViewController.swift in Sources */,
 				B984DE55255E65A500B69DE4 /* PlantTableViewCell.swift in Sources */,
@@ -491,6 +483,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SmartGarden/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -509,6 +502,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SmartGarden/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
