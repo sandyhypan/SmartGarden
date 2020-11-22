@@ -102,7 +102,7 @@ class PlantViewController: UIViewController, ChartViewDelegate {
             let dataEntry = ChartDataEntry(x: Double(i), y: Double(forY[i]), data: dateRecords as AnyObject?)
             entries.append(dataEntry)
         }
-        
+        let labelGrey = UIColor(red:115/255, green:115/255,blue:115/255,alpha:1)
         let green = UIColor(red:0/255, green:255/255,blue:170/255,alpha:1)
         let grey = UIColor(displayP3Red: 242/255, green: 242/255, blue: 242/255, alpha: 0.5)
         let darkGrey = UIColor(displayP3Red: 191/255, green: 191/255, blue: 191/255, alpha: 1)
@@ -118,6 +118,7 @@ class PlantViewController: UIViewController, ChartViewDelegate {
         chartDataSet.fillAlpha = 1
         chartDataSet.fill = Fill.init(CGColor: green.cgColor)
         chartDataSet.drawFilledEnabled = true
+        chartDataSet.valueTextColor = labelGrey
         
         //Fill the line with gradient colors
         let lightGreen = UIColor(red:133/255, green:224/255,blue:133/255,alpha:0.5)
@@ -133,11 +134,12 @@ class PlantViewController: UIViewController, ChartViewDelegate {
         lineChart.borderColor = lightGreen
         lineChart.extraTopOffset = 3
         lineChart.extraBottomOffset = 10
+        lineChart.extraLeftOffset =  3
         
         let xAxis = lineChart.xAxis
         xAxis.drawGridLinesEnabled = false
         xAxis.valueFormatter = axisFormatDelegate
-        
+        xAxis.labelTextColor = labelGrey
         //        xAxis.avoidFirstLastClippingEnabled = true
         //        xAxis.labelRotationAngle = -45.0
         xAxis.wordWrapEnabled = true
@@ -159,14 +161,16 @@ class PlantViewController: UIViewController, ChartViewDelegate {
         leftAxis.removeAllLimitLines()
         leftAxis.drawZeroLineEnabled = false
         leftAxis.zeroLineWidth = 0
-        leftAxis.drawTopYLabelEntryEnabled = false
+        leftAxis.drawTopYLabelEntryEnabled = true
         leftAxis.drawAxisLineEnabled = false
         leftAxis.drawGridLinesEnabled = false
+        leftAxis.labelTextColor = labelGrey
         //       leftAxis.drawLabelsEnabled = false
         leftAxis.drawLimitLinesBehindDataEnabled = false
-        leftAxis.axisMinimum = axisMin
+        leftAxis.axisMinimum = axisMin - (axisMax - axisMin)/10
         leftAxis.zeroLineWidth = 0
-        leftAxis.axisMaximum = axisMax
+        leftAxis.axisMaximum = axisMax + (axisMax-axisMin)/10
+        
         
         let rightAxis = lineChart.rightAxis
         rightAxis.removeAllLimitLines()
@@ -233,8 +237,9 @@ class PlantViewController: UIViewController, ChartViewDelegate {
             self.soilTempRecords.insert(temp, at: 0)
             
             let timestamp = snapshot.childSnapshot(forPath: "Timestamp").value as? Double ?? 0
-            let localDate = self.timestampCorrector(timeStamp: timestamp)
-            self.dateRecords.insert(localDate, at: 0)
+            var localDate = self.timestampCorrector(timeStamp: timestamp)
+            let wrapTextDate = localDate.replacingOccurrences(of: " ", with: "\n")
+            self.dateRecords.insert(wrapTextDate, at: 0)
             
             
             //Get only the most recent water tank level reading record
