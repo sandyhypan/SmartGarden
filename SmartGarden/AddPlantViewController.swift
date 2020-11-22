@@ -40,6 +40,58 @@ class AddPlantViewController: UIViewController, UIImagePickerControllerDelegate,
         //        }
     }
     
+    // MARK: - Dismiss keyboard and adjust View in response to keyboard notification
+    // ref: https://www.youtube.com/watch?v=kD6vw0hp5WU&vl=en&ab_channel=MarkMoeykens
+    
+    @objc func dismissKeyboard(sender: AnyObject){
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+    }
+    
+    // Move the screen upward when the keyboard pop up
+    @objc func keyboardWillShow(notification: NSNotification){
+        // Register a gesture recognizer that will dismiss the keyboard if the user click on somewhere else
+        if dismissKeyboardTapGesture == nil {
+            dismissKeyboardTapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+            self.view.addGestureRecognizer(dismissKeyboardTapGesture!)
+        }
+        
+        // Get the userinfo dictionary that consist of the information of the keyboard
+        guard let userInfo = notification.userInfo else { return }
+        
+        // Get the size of the keyboard
+        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardFrame = keyboardSize.cgRectValue
+        
+        // Minus view height with the keyboard height to move everything upwards
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y -= (keyboardFrame.height - 60)
+        }
+        
+    }
+    
+    
+    // Move the screen downward when the keyboard dismiss
+    @objc func keyboardWillHide(notification: NSNotification){
+        // Deregister the gesture recogniser when it is not needed
+        if dismissKeyboardTapGesture != nil {
+            self.view.removeGestureRecognizer(dismissKeyboardTapGesture!)
+            dismissKeyboardTapGesture = nil
+        }
+        
+        // Get the userinfo dictionary that consist of the information of the keyboard
+        guard let userInfo = notification.userInfo else { return }
+        
+        // Get the size of the keyboard
+        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardFrame = keyboardSize.cgRectValue
+        
+        // Add view height with the keyboard height to move everything upwards
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y += (keyboardFrame.height - 60)
+        }
+    }
+    
     //MARK: - Image picker
     //references:https://www.youtube.com/watch?v=HqxeyS961Uk&ab_channel=SergeyKargopolov
     //https://www.youtube.com/watch?v=yggOGEzueFk&ab_channel=iOSAcademy
