@@ -336,7 +336,7 @@ class PlantViewController: UIViewController, ChartViewDelegate {
 
 extension PlantViewController: IAxisValueFormatter{
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-        return dateRecords[Int(value)]
+        return dateRecords[Int(value) % dateRecords.count]
     }
 }
 
