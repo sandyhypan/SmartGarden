@@ -10,6 +10,7 @@ import UIKit
 import FirebaseDatabase
 import Cosmos
 import Charts
+import FirebaseAuth
 
 class PlantViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var moistureChart: LineChartView!
@@ -31,6 +32,7 @@ class PlantViewController: UIViewController, ChartViewDelegate {
     weak var axisFormatDelegate: IAxisValueFormatter?
     var x:[String] = []
     var totalRecords: Int = 0
+    @IBOutlet weak var waterSwitch: UISwitch!
     
     
     override func viewDidLoad() {
@@ -52,6 +54,15 @@ class PlantViewController: UIViewController, ChartViewDelegate {
         ref = Database.database().reference()
         retrieveAllRecords()
         
+        // Sync the auto_water switch with firebase
+        let ref = self.ref?.child(userID).child((plant?.macAddress)!).child("auto_water")
+        ref?.observeSingleEvent(of: .value, with: { (snapshot) in
+            let isOn = snapshot.value as! Bool
+            
+            self.waterSwitch.setOn(isOn, animated: false)
+        })
+        
+        
         
   
     }
@@ -59,7 +70,7 @@ class PlantViewController: UIViewController, ChartViewDelegate {
     @IBAction func switchChange(_ sender: UISwitch) {
         var flag = "off"
         if sender.isOn{
-            flag = "start"
+            flag = "start/\((Auth.auth().currentUser?.uid)!)"
         } else {
             flag = "stop"
         }

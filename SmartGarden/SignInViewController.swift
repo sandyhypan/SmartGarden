@@ -44,6 +44,7 @@ class SignInViewController: UIViewController {
     }
     
     // MARK: - Dismiss keyboard and adjust View in response to keyboard notification
+    // ref: https://www.youtube.com/watch?v=kD6vw0hp5WU&vl=en&ab_channel=MarkMoeykens
     
     @objc func dismissKeyboard(sender: AnyObject){
         emailTextField.resignFirstResponder()
@@ -94,6 +95,8 @@ class SignInViewController: UIViewController {
         }
     }
 
+
+    // MARK: - Signin
     
     @IBAction func signIn(_ sender: Any) {
         if emailTextField.text != "" && passwordTextField.text != ""{
@@ -129,17 +132,6 @@ class SignInViewController: UIViewController {
             DisplayMessages.displayAlert(title: "Empty credentials.", message: "Please provide valid email and password.")
         }
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

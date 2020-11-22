@@ -75,6 +75,7 @@ class AddPlantViewController: UIViewController, UIImagePickerControllerDelegate,
         if plantNameTextfield.text != "" && waterTankVolumeTextField.text != "" && moistureLevelTextField.text != "" &&  plantImage != nil{
             let plantName = plantNameTextfield.text!
             
+            
             if Double(waterTankVolumeTextField.text!) != nil && Double(moistureLevelTextField.text!) != nil{
                 
                 if Double(moistureLevelTextField.text!)! > 0 && Double(moistureLevelTextField.text!)! < 100{
@@ -92,6 +93,7 @@ class AddPlantViewController: UIViewController, UIImagePickerControllerDelegate,
                     //Save to firebase
                     ref?.child("\(uid!)/\(deviceUUID!)/plant_info/plant_name").setValue(plantName)
                     ref?.child("\(uid!)/\(deviceUUID!)/plant_info/ip").setValue(ipAddress)
+                    ref?.child("\(uid!)/\(deviceUUID!)/auto_water").setValue(false)
                     
                     
                     //Post user preferences to Pi
@@ -99,13 +101,14 @@ class AddPlantViewController: UIViewController, UIImagePickerControllerDelegate,
                     let moistureUrlString = "http://\(ipAddress!):5000/setMoisture/\(moistureLevelTextField.text!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
                     let moistureURL = URL(string: moistureUrlString!)
                     let dataTask = URLSession.shared.dataTask(with: moistureURL!) {(data, response, error) in
-                        
+
                         if let error = error{
                             print(error.localizedDescription)
                             return
                         }
-                        
+
                     }
+
                     dataTask.resume()
                     
                     //water tank volume http call
@@ -118,33 +121,32 @@ class AddPlantViewController: UIViewController, UIImagePickerControllerDelegate,
                         }
                     }
                     dataTask2.resume()
-                    
+
                     self.performSegue(withIdentifier: "savePlantSegue", sender: self)
+                    
                 } else {
                     DisplayMessages.displayAlert(title: "Error", message: "Moisture level should be between 0 to 100")
                 }
-                
-            } else {
-                DisplayMessages.displayAlert(title: "Error", message: "Please input correct format for water tank volume or moisture level")
+        } else {
+            DisplayMessages.displayAlert(title: "Error", message: "Please input correct format for water tank volume or moisture level")
             }
-            
-        } else{
-            DisplayMessages.displayAlert(title: "Error", message: "All fields must be filled")
-        }
+        
+    } else{
+    DisplayMessages.displayAlert(title: "Error", message: "All fields must be filled")
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
 
+/*
+ // MARK: - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+ // Get the new view controller using segue.destination.
+ // Pass the selected object to the new view controller.
+ }
+ */
+
+}
 //MARK: -Text Field Delegates
 extension AddPlantViewController    : UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -157,3 +159,6 @@ extension AddPlantViewController    : UITextFieldDelegate{
         return true
     }
 }
+
+
+
