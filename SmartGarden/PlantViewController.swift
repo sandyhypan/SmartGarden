@@ -252,7 +252,7 @@ class PlantViewController: UIViewController, ChartViewDelegate {
                 if containerVolume <= 0{
                     self.waterTankVolume.rating = 0
                 } else {
-                    self.waterTankVolume.rating = waterVol/containerVolume
+                    self.waterTankVolume.rating = (waterVol/containerVolume) * 5
                 }
                 
             }
